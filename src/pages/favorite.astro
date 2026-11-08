@@ -56,8 +56,11 @@ const favorite = {
   description="In-depth spotlight on my favorite literary masterpiece: Homer's The Iliad."
 >
   <div class="favorite-stage-wrapper">
-    <!-- Full-Bleed Ambient Pixel Landscape Stage (Strictly Contained Above Footer) -->
-    <div class="full-bleed-pixel-stage" style={`background-image: url('${favorite.pixelBg}');`} aria-hidden="true"></div>
+    <!-- Full-Bleed Ambient Pixel Landscape Stage (Dark Ink Backing for Gentle Eye Comfort) -->
+    <div class="full-bleed-pixel-stage" aria-hidden="true">
+      <div class="pixel-stage-backdrop" style={`background-image: url('${favorite.pixelBg}');`}></div>
+      <div class="pixel-stage-vignette"></div>
+    </div>
 
     <div class="page-header-block">
     <div class="container">
@@ -162,7 +165,7 @@ const favorite = {
     padding-bottom: 4rem;
   }
 
-  /* Full-Bleed Ambient Pixel Landscape Stage (Contained Strictly to Favorite Content) */
+  /* Full-Bleed Ambient Pixel Landscape Stage (Signature Book Cloth Crimson Backing) */
   .full-bleed-pixel-stage {
     position: fixed;
     top: 0;
@@ -171,20 +174,31 @@ const favorite = {
     bottom: 0;
     width: 100vw;
     height: 100vh;
+    background-color: var(--color-accent); /* #881337 - exact signature red color of the website */
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .pixel-stage-backdrop {
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
-    opacity: 0.20;
-    pointer-events: none;
-    z-index: 0;
+    opacity: 0.38;
+  }
+
+  .pixel-stage-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 35%, rgba(76, 5, 25, 0.5) 100%);
   }
 
   .page-header-block {
     position: relative;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
   }
 
   .favorite-content-area {
