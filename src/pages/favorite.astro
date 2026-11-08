@@ -1,0 +1,335 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const favorite = {
+  title: "Lorem Ipsum Masterpiece (Sample Title)",
+  author: "Author Placeholder",
+  period: "Historical Period Placeholder (c. 1300)",
+  primaryTheme: "Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit",
+  quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  overview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.",
+  reasonsForChoice: [
+    {
+      title: "Lorem Ipsum Rationale Alpha",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+    },
+    {
+      title: "Lorem Ipsum Rationale Beta",
+      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+    },
+    {
+      title: "Lorem Ipsum Rationale Gamma",
+      desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem."
+    }
+  ],
+  themesAndCharacters: {
+    characters: [
+      { name: "Character Archetype Alpha", role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum." },
+      { name: "Character Archetype Beta", role: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam." },
+      { name: "Character Archetype Gamma", role: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti." }
+    ],
+    lessons: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi."
+  },
+  personalConnections: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+};
+---
+
+<Layout 
+  title="Favorite Literary Masterpiece | Great Books Portfolio"
+  description="In-depth spotlight on my favorite literary masterpiece from the Great Books curriculum."
+>
+  <div class="page-header-block">
+    <div class="container">
+      <span class="section-tag">Featured Selection</span>
+      <h1>Favorite Literary Masterpiece</h1>
+      <p class="lead-text">
+        An in-depth study of the most memorable work discussed throughout our Great Books curriculum.
+      </p>
+    </div>
+  </div>
+
+  <div class="container container-reading favorite-content-area">
+    <!-- Spotlight Card (Classic Bookish Linen, Zero AI Gradients) -->
+    <div class="spotlight-card">
+      <div class="spotlight-top">
+        <span class="tag tag-accent">Featured Work</span>
+        <span class="period-text">{favorite.period}</span>
+      </div>
+      <h2 class="spotlight-title">{favorite.title}</h2>
+      <div class="spotlight-author">By <strong>{favorite.author}</strong></div>
+      
+      <div class="spotlight-quote-box">
+        <blockquote>&ldquo;{favorite.quote}&rdquo;</blockquote>
+        <span class="quote-citation">Citation Reference Placeholder</span>
+      </div>
+    </div>
+
+    <!-- Section 1: Overview -->
+    <section class="editorial-section">
+      <h3 class="section-title">Overview of the Work</h3>
+      <div class="section-text">
+        <p>{favorite.overview}</p>
+      </div>
+    </section>
+
+    <!-- Section 2: Reasons for Selection -->
+    <section class="editorial-section">
+      <h3 class="section-title">Why This Masterpiece Resonated</h3>
+      <div class="reasons-grid">
+        {favorite.reasonsForChoice.map((reason) => (
+          <div class="reason-card">
+            <h4 class="reason-title">{reason.title}</h4>
+            <p class="reason-desc">{reason.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Section 3: Significant Themes & Characters -->
+    <section class="editorial-section">
+      <h3 class="section-title">Significant Themes & Characters</h3>
+      
+      <div class="characters-list">
+        {favorite.themesAndCharacters.characters.map((char) => (
+          <div class="character-item">
+            <div class="char-name">{char.name}</div>
+            <div class="char-role">{char.role}</div>
+          </div>
+        ))}
+      </div>
+
+      <div class="lesson-card">
+        <h4 class="lesson-title">Core Theme:</h4>
+        <p class="lesson-text">{favorite.themesAndCharacters.lessons}</p>
+      </div>
+    </section>
+
+    <!-- Section 4: Personal Connections -->
+    <section class="editorial-section">
+      <h3 class="section-title">Personal Realizations & Connections</h3>
+      <div class="section-text">
+        <p>{favorite.personalConnections}</p>
+      </div>
+    </section>
+
+    <!-- Next Section Navigation -->
+    <div class="next-step-bar">
+      <span>Continue reading:</span>
+      <a href="/summary" class="btn btn-primary">
+        Learning Summary &rarr;
+      </a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .favorite-content-area {
+    padding-bottom: 3.5rem;
+  }
+
+  .spotlight-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    border-radius: 8px;
+    padding: 2.5rem 2.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .spotlight-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .period-text {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+  }
+
+  .spotlight-title {
+    font-size: 2.25rem;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem;
+    line-height: 1.25;
+  }
+
+  .spotlight-author {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .spotlight-author strong {
+    color: var(--color-primary);
+  }
+
+  .spotlight-quote-box {
+    background: var(--color-bg);
+    border-left: 3px solid var(--color-warm-brown);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .spotlight-quote-box blockquote {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--color-primary);
+    line-height: 1.7;
+  }
+
+  .quote-citation {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+  }
+
+  .editorial-section {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2rem 2.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+    color: var(--color-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.75rem;
+    margin: 0 0 1.25rem;
+  }
+
+  .section-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--color-text);
+  }
+
+  .section-text p {
+    margin: 0;
+  }
+
+  .reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .reason-card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
+  .reason-title {
+    font-size: 0.98rem;
+    color: var(--color-accent);
+    margin: 0 0 0.4rem;
+  }
+
+  .reason-desc {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .characters-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .character-item {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-warm-brown);
+    border-radius: 4px;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .char-name {
+    font-weight: 600;
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .char-role {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+  }
+
+  .lesson-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+  }
+
+  .lesson-title {
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .lesson-text {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--color-text);
+  }
+
+  .next-step-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.75rem;
+  }
+
+  .next-step-bar span {
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.88rem;
+    font-weight: 500;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-accent);
+  }
+
+  @media (max-width: 720px) {
+    .spotlight-card, .editorial-section {
+      padding: 1.5rem;
+    }
+
+    .spotlight-title {
+      font-size: 1.85rem;
+    }
+  }
+</style>

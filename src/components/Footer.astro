@@ -1,0 +1,156 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-content">
+    <div class="footer-grid">
+      <div class="footer-col brand-col">
+        <h3 class="footer-title">My Literary Journey</h3>
+        <p class="footer-desc">
+          A personal digital portfolio documenting reading reflections, literary analyses, and thematic insights across world classics in the Great Books course.
+        </p>
+        <span class="subject-tag">Great Books Literary Portfolio</span>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="col-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/profile">Student Profile</a></li>
+          <li><a href="/analyses">Literary Analyses</a></li>
+          <li><a href="/favorite">Favorite Masterpiece</a></li>
+          <li><a href="/summary">Learning Summary</a></li>
+          <li><a href="/reflection">Personal Reflection</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="col-heading">Colophon & Citation</h4>
+        <p class="integrity-text">
+          All literary analyses, reflections, and original insights reflect personal academic inquiry. References to translations, historical sources, and critical lenses are credited accordingly.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copy-text">
+        &copy; {currentYear} &bull; <strong>My Literary Journey</strong> &bull; Great Books Portfolio.
+      </p>
+      <div class="built-tag">
+        Static Portfolio Website
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #ffffff;
+    color: var(--color-text);
+    border-top: 1px solid var(--color-border);
+    margin-top: 5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0 0 0.75rem;
+  }
+
+  .footer-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    margin-bottom: 1.25rem;
+  }
+
+  .subject-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    background: var(--color-bg-alt);
+    color: var(--color-warm-brown);
+    border: 1px solid var(--color-border);
+  }
+
+  .col-heading {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .footer-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.15s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+
+  .integrity-text {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    background: var(--color-bg-alt);
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 4px 4px 0;
+    margin: 0;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .copy-text strong {
+    color: var(--color-primary);
+  }
+
+  .built-tag {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+  }
+
+  @media (max-width: 820px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

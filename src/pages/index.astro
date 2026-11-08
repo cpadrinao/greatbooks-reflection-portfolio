@@ -1,11 +1,1062 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import { analyses } from '../data/analyses';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const sections = [
+  {
+    title: "Student Profile",
+    route: "/profile",
+    description: "An introduction presenting personal background, reading interests, and academic journey in the Great Books course.",
+    category: "About the Reader",
+    chapter: "Chapter I"
+  },
+  {
+    title: "Literary Analyses",
+    route: "/analyses",
+    description: "A collection of seven literary masterpieces examined through different critical lenses from antiquity to the modern era.",
+    category: "Core Analyses",
+    chapter: "Chapter II"
+  },
+  {
+    title: "Favorite Masterpiece",
+    route: "/favorite",
+    description: "An in-depth exploration of the most memorable work studied, exploring its core themes, memorable figures, and personal resonance.",
+    category: "Featured Work",
+    chapter: "Chapter III"
+  },
+  {
+    title: "Learning Summary",
+    route: "/summary",
+    description: "A synthesis of key historical periods, critical lenses, cultural worldviews, and interpretive skills developed during the course.",
+    category: "Academic Synthesis",
+    chapter: "Chapter IV"
+  },
+  {
+    title: "Personal Reflection",
+    route: "/reflection",
+    description: "Reflections on reading challenges, intellectual breakthroughs, influential critical approaches, and ethical lessons.",
+    category: "Reflections & Values",
+    chapter: "Chapter V"
+  }
+];
+
+const coverThemes = [
+  { bg: "#182635", border: "#d97706", accentColor: "#fbbf24", textLight: "#f1f5f9" },
+  { bg: "#7a1128", border: "#d97706", accentColor: "#fde68a", textLight: "#fff1f2" },
+  { bg: "#163824", border: "#d97706", accentColor: "#fde68a", textLight: "#f0fdf4" },
+  { bg: "#451a03", border: "#d97706", accentColor: "#fde68a", textLight: "#fef3c7" },
+  { bg: "#3b1747", border: "#d97706", accentColor: "#f5d0fe", textLight: "#faf5ff" },
+  { bg: "#1f2937", border: "#d97706", accentColor: "#fde68a", textLight: "#f9fafb" },
+  { bg: "#581c1c", border: "#d97706", accentColor: "#fed7aa", textLight: "#fff7ed" }
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout 
+  title="My Literary Journey | Great Books Portfolio"
+  description="A personal digital portfolio showcasing literary analyses, critical lenses, and reading reflections."
+>
+  <!-- Hero Section: Clean Ivory White (#ffffff) with Ambient Floating Book Silhouettes -->
+  <section class="hero-section">
+    <!-- Ambient Animated Floating Book Layer -->
+    <div class="floating-books-stage" aria-hidden="true">
+      <div class="floating-element float-book-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="68" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          <line x1="12" y1="7" x2="12" y2="21"></line>
+        </svg>
+      </div>
+
+      <div class="floating-element float-book-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"></path>
+          <path d="M6 6h10"></path>
+          <path d="M6 10h10"></path>
+        </svg>
+      </div>
+
+      <div class="floating-element float-book-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+      </div>
+
+      <div class="floating-element float-page-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="8" y1="13" x2="16" y2="13"></line>
+        </svg>
+      </div>
+
+      <div class="floating-element float-ribbon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+        </svg>
+      </div>
+
+      <div class="floating-chip chip-1">
+        <span>&bull; Antiquity to Modernity</span>
+      </div>
+      <div class="floating-chip chip-2">
+        <span>&bull; Critical Lenses</span>
+      </div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="container hero-container">
+      <div class="hero-text-col">
+        <div class="hero-label">
+          <span class="ornament-leaf">&#10086;</span>
+          <span>Great Books Digital Portfolio</span>
+          <span class="ornament-leaf">&#10087;</span>
+        </div>
+        
+        <h1 class="hero-heading">
+          My Literary Journey
+        </h1>
+        
+        <p class="hero-lead">
+          An exploration of timeless literary masterpieces across civilizational eras. 
+          Discover critical analyses, thematic reflections, and the enduring human dilemmas 
+          studied throughout our Great Books course.
+        </p>
+
+        <div class="hero-cta-row">
+          <a href="/analyses" class="btn btn-primary">
+            <span>Explore Literary Analyses</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a href="/profile" class="btn btn-outline">
+            About the Reader
+          </a>
+        </div>
+      </div>
+
+      <!-- Solid, Clean 3D Hardcover Book (Floating Bob + Perspective Hover Tilt) -->
+      <div class="hero-book-showcase">
+        <div class="book-3d-wrapper">
+          <div class="book-3d">
+            <!-- Spine with Raised Hubbed Bands -->
+            <div class="book-spine">
+              <span class="spine-line"></span>
+              <span class="spine-line"></span>
+              <span class="spine-line"></span>
+              <span class="spine-line"></span>
+            </div>
+
+            <!-- Front Hardcover Face with Corner Brackets -->
+            <div class="cover-face">
+              <span class="corner-bracket corner-tl"></span>
+              <span class="corner-bracket corner-tr"></span>
+              <span class="corner-bracket corner-bl"></span>
+              <span class="corner-bracket corner-br"></span>
+
+              <div class="cover-filigree">
+                <div class="cover-inner-frame">
+                  <span class="cover-monogram">&#10086;</span>
+                  <span class="cover-series">CLASSICAL CANON</span>
+                  <h2 class="cover-title">GREAT<br/>BOOKS</h2>
+                  <div class="cover-divider"></div>
+                  <span class="cover-subtitle">A Digital Portfolio</span>
+                  <span class="cover-edition">LITERARY ARCHIVE</span>
+                </div>
+              </div>
+
+              <!-- Silk Ribbon Bookmark -->
+              <div class="ribbon-bookmark">
+                <div class="ribbon-tail"></div>
+              </div>
+            </div>
+
+            <!-- Stacked Page Thickness Edges -->
+            <div class="book-pages-right"></div>
+            <div class="book-pages-bottom"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Exploration Chapters (Clean Soothing Blush #fbf5f5 with Bookbinder & Bookmark Details) -->
+  <section class="sections-overview">
+    <div class="container header-container">
+      <div class="overview-header">
+        <span class="overview-tag">Portfolio Chapters</span>
+        <h2>Exploration Chapters</h2>
+        <p class="overview-subtitle">
+          Bound volumes documenting critical analysis, ethical inquiry, and personal literary growth.
+        </p>
+      </div>
+    </div>
+
+    <!-- Smooth Left-to-Right Moving Glider Rail (Pauses on Hover) -->
+    <div class="glider-carousel-viewport">
+      <div class="glider-track">
+        <!-- Sequence 1 -->
+        {sections.map((sec) => (
+          <a href={sec.route} class="hub-card book-binder-card">
+            <!-- Draped Silk Bookmark Ribbon -->
+            <div class="card-bookmark-ribbon">
+              <div class="bookmark-tail"></div>
+            </div>
+
+            <!-- Brass Corner Protectors -->
+            <span class="card-corner card-corner-tr"></span>
+            <span class="card-corner card-corner-br"></span>
+
+            <!-- Bookbinder Spine with Stitched Edge -->
+            <div class="card-binder-spine">
+              <span class="spine-stitch"></span>
+              <span class="spine-stitch"></span>
+              <span class="spine-stitch"></span>
+            </div>
+
+            <div class="card-inner-body">
+              <div class="card-meta">
+                <span class="card-chapter-label">{sec.chapter}</span>
+                <span class="card-category">&bull; {sec.category}</span>
+              </div>
+
+              <h3 class="card-title">{sec.title}</h3>
+              <p class="card-description">{sec.description}</p>
+              
+              <div class="card-footer">
+                <span class="explore-text">Open Volume &rarr;</span>
+              </div>
+            </div>
+          </a>
+        ))}
+
+        <!-- Duplicated Sequence for Continuous Seamless Loop -->
+        {sections.map((sec) => (
+          <a href={sec.route} class="hub-card book-binder-card" aria-hidden="true">
+            <div class="card-bookmark-ribbon">
+              <div class="bookmark-tail"></div>
+            </div>
+
+            <span class="card-corner card-corner-tr"></span>
+            <span class="card-corner card-corner-br"></span>
+
+            <div class="card-binder-spine">
+              <span class="spine-stitch"></span>
+              <span class="spine-stitch"></span>
+              <span class="spine-stitch"></span>
+            </div>
+
+            <div class="card-inner-body">
+              <div class="card-meta">
+                <span class="card-chapter-label">{sec.chapter}</span>
+                <span class="card-category">&bull; {sec.category}</span>
+              </div>
+
+              <h3 class="card-title">{sec.title}</h3>
+              <p class="card-description">{sec.description}</p>
+              
+              <div class="card-footer">
+                <span class="explore-text">Open Volume &rarr;</span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Selected Masterpieces (Clean White Background with 7 Randomly Rotating Books) -->
+  <section class="analyses-strip">
+    <div class="container">
+      <div class="strip-header">
+        <div>
+          <span class="overview-tag">Curated Archive</span>
+          <h2>Selected Masterpieces</h2>
+          <p class="strip-subtitle">
+            Rotates randomly on each page visit to fairly showcase all seven literary masterpieces.
+          </p>
+        </div>
+        <a href="/analyses" class="view-link">View all 7 analyses &rarr;</a>
+      </div>
+
+      <!-- Book-Shaped Masterpiece Cards Grid (All 7 rendered, 3 displayed randomly on load) -->
+      <div class="bookshelf-grid" id="bookshelf-grid">
+        {analyses.map((item, index) => {
+          const theme = coverThemes[index % coverThemes.length];
+          return (
+            <div 
+              class="book-physical-wrapper" 
+              data-masterpiece-card={item.id}
+              style={index >= 3 ? "display: none;" : ""}
+            >
+              <div 
+                class="book-physical" 
+                style={`--cover-bg: ${theme.bg}; --cover-border: ${theme.border}; --cover-accent: ${theme.accentColor}; --cover-text: ${theme.textLight};`}
+              >
+                <!-- Bookbinder Metal Corner Caps -->
+                <span class="binder-corner corner-top-right"></span>
+                <span class="binder-corner corner-bottom-right"></span>
+
+                <!-- Left Spine with Gold Raised Hubbed Bands -->
+                <div class="book-physical-spine">
+                  <span class="spine-rib rib-1"></span>
+                  <span class="spine-rib rib-2"></span>
+                  <span class="spine-rib rib-3"></span>
+                  <span class="spine-rib rib-4"></span>
+                </div>
+
+                <!-- Bookbinder Hinge Line -->
+                <div class="cover-hinge-groove"></div>
+
+                <!-- Book Cover Face -->
+                <div class="book-physical-cover">
+                  <div class="book-inner-border">
+                    <div class="book-lens-badge">{item.lens.split('/')[0]}</div>
+                    <h3 class="book-work-title">{item.title}</h3>
+                    <div class="book-author-line">By {item.author}</div>
+                    <div class="book-fleuron">&#10086;</div>
+                    <p class="book-excerpt-text">{item.excerpt}</p>
+                    <div class="book-period-footer">{item.period}</div>
+                    
+                    <a href={`/analyses/${item.id}`} class="book-read-btn">
+                      Read Analysis &rarr;
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Stacked Paper Pages Edge -->
+                <div class="book-physical-pages"></div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<script>
+  // Dynamic Random Rotation: Shuffles and displays 3 random masterpieces from the 7 on every page load/restart
+  document.addEventListener("DOMContentLoaded", () => {
+    const cardWrappers = Array.from(document.querySelectorAll<HTMLElement>("[data-masterpiece-card]"));
+    if (cardWrappers.length >= 3) {
+      cardWrappers.forEach((el) => {
+        el.style.display = "none";
+      });
+
+      const indices = Array.from({ length: cardWrappers.length }, (_, i) => i);
+      for (let i = indices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [indices[i], indices[j]] = [indices[j], indices[i]];
+      }
+
+      indices.slice(0, 3).forEach((idx) => {
+        cardWrappers[idx].style.display = "flex";
+      });
+    }
+  });
+</script>
+
+<style>
+  /* ----------------------------------------------------
+     Hero Section: Clean Ivory White (#ffffff)
+     ---------------------------------------------------- */
+  .hero-section {
+    position: relative;
+    padding: 5rem 0 4.5rem;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    overflow: hidden;
+  }
+
+  .floating-books-stage {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .floating-element {
+    position: absolute;
+    color: var(--color-warm-brown);
+    opacity: 0.18;
+    filter: drop-shadow(0 2px 4px rgba(41, 37, 36, 0.05));
+  }
+
+  .float-book-1 { top: 10%; left: 4%; animation: floatDrift 14s ease-in-out infinite alternate; }
+  .float-book-2 { bottom: 12%; left: 44%; animation: floatBob 11s ease-in-out infinite alternate; }
+  .float-book-3 { top: 14%; right: 48%; animation: floatTilt 16s ease-in-out infinite alternate; }
+  .float-page-1 { top: 60%; left: 6%; animation: floatDrift 13s ease-in-out infinite alternate-reverse; }
+  .float-ribbon { bottom: 20%; right: 6%; color: var(--color-accent); opacity: 0.22; animation: floatBob 10s ease-in-out infinite alternate; }
+
+  .floating-chip {
+    position: absolute;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--color-text-muted);
+    background: rgba(251, 250, 247, 0.95);
+    border: 1px solid var(--color-border);
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+  }
+
+  .chip-1 { top: 8%; right: 18%; animation: floatBob 9s ease-in-out infinite alternate; }
+  .chip-2 { bottom: 8%; left: 18%; animation: floatDrift 12s ease-in-out infinite alternate; }
+
+  @keyframes floatBob {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-16px) rotate(2deg); }
+    100% { transform: translateY(-4px) rotate(-1deg); }
+  }
+
+  @keyframes floatDrift {
+    0% { transform: translate(0px, 0px) rotate(0deg); }
+    50% { transform: translate(12px, -18px) rotate(-3deg); }
+    100% { transform: translate(-8px, -8px) rotate(2deg); }
+  }
+
+  @keyframes floatTilt {
+    0% { transform: translateY(0px) rotate(-2deg); }
+    50% { transform: translateY(-20px) rotate(4deg); }
+    100% { transform: translateY(-10px) rotate(-1deg); }
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-accent);
+    margin-bottom: 0.85rem;
+  }
+
+  .ornament-leaf { color: var(--color-warm-brown); font-size: 0.95rem; }
+
+  .hero-heading {
+    font-family: var(--font-heading);
+    font-size: 3.75rem;
+    font-weight: 600;
+    line-height: 1.08;
+    color: var(--color-primary);
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.015em;
+  }
+
+  .hero-lead {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin: 0 0 2rem;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .btn-primary { background: var(--color-primary); color: #ffffff; }
+  .btn-primary:hover { background: var(--color-accent); transform: translateY(-1px); }
+  .btn-outline { background: #ffffff; color: var(--color-primary); border: 1px solid var(--color-border-dark); }
+  .btn-outline:hover { background: var(--color-bg-alt); }
+
+  /* ----------------------------------------------------
+     Solid 3D Hardcover Book Showcase (Floating + Hover Tilt)
+     ---------------------------------------------------- */
+  .hero-book-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1400px;
+    padding: 1rem 0;
+  }
+
+  .book-3d-wrapper {
+    position: relative;
+    cursor: pointer;
+    animation: gentleBookBob 7s ease-in-out infinite alternate;
+  }
+
+  @keyframes gentleBookBob {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-12px); }
+  }
+
+  .book-3d {
+    position: relative;
+    width: 240px;
+    height: 330px;
+    background: #881337;
+    border-radius: 3px 8px 8px 3px;
+    box-shadow: 
+      -4px 4px 10px rgba(0, 0, 0, 0.15),
+      12px 18px 30px rgba(28, 25, 23, 0.18);
+    transform: rotateY(-16deg) rotateX(7deg);
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+  }
+
+  .book-3d-wrapper:hover .book-3d {
+    transform: rotateY(-6deg) rotateX(2deg) translateY(-4px) scale(1.02);
+    box-shadow: 
+      -6px 6px 14px rgba(0, 0, 0, 0.18),
+      18px 26px 40px rgba(28, 25, 23, 0.22);
+  }
+
+  /* Spine */
+  .book-spine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 22px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(0, 0, 0, 0.2) 100%);
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 3px 0 0 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1.5rem 0;
+  }
+
+  .spine-line {
+    height: 3px;
+    background: #d97706;
+    margin: 0 2px;
+    border-radius: 1px;
+  }
+
+  .cover-face {
+    position: absolute;
+    inset: 0;
+    padding: 1.25rem 1.25rem 1.25rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 3px 8px 8px 3px;
+    background: #881337;
+  }
+
+  .corner-bracket {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #d97706;
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  .corner-tl { top: 8px; left: 14px; border-right: none; border-bottom: none; }
+  .corner-tr { top: 8px; right: 8px; border-left: none; border-bottom: none; }
+  .corner-bl { bottom: 8px; left: 14px; border-right: none; border-top: none; }
+  .corner-br { bottom: 8px; right: 8px; border-left: none; border-top: none; }
+
+  .cover-filigree {
+    height: 100%;
+    border: 1px solid #d97706;
+    border-radius: 4px;
+    padding: 1rem 0.85rem;
+    box-shadow: inset 0 0 0 2px rgba(217, 119, 6, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .cover-inner-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+
+  .cover-monogram { font-size: 1.2rem; color: #fbbf24; }
+  .cover-series { font-family: var(--font-body); font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: #fde68a; }
+  .cover-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 0.35rem 0;
+    letter-spacing: 0.08em;
+  }
+  .cover-divider { width: 38px; height: 1px; background: #d97706; margin: 0.25rem 0; }
+  .cover-subtitle { font-size: 0.82rem; color: #fde68a; font-style: italic; font-family: var(--font-serif); }
+  .cover-edition { font-family: var(--font-body); font-size: 0.62rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255, 255, 255, 0.75); margin-top: 0.65rem; }
+
+  .ribbon-bookmark {
+    position: absolute;
+    top: -4px;
+    right: 28px;
+    width: 14px;
+    height: 110px;
+    background: #dc2626;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+    z-index: 5;
+  }
+  .ribbon-tail {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: inherit;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  }
+
+  .book-pages-right {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    right: -10px;
+    width: 10px;
+    background: repeating-linear-gradient(to right, #fefae0 0px, #fefae0 1px, #e9edc9 1px, #e9edc9 2px);
+    border: 1px solid #d5cebf;
+    border-left: none;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .book-pages-bottom {
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    right: 2px;
+    height: 8px;
+    background: repeating-linear-gradient(to bottom, #fefae0 0px, #fefae0 1px, #e9edc9 1px, #e9edc9 2px);
+    border: 1px solid #d5cebf;
+    border-top: none;
+    border-radius: 0 0 2px 2px;
+  }
+
+  /* ----------------------------------------------------
+     Section 1: Exploration Chapters (Clean Soft Blush #fbf5f5)
+     Card-Embedded Bookbinder & Draped Ribbon Design
+     ---------------------------------------------------- */
+  .sections-overview {
+    background: #fbf5f5;
+    border-top: 1px solid #f2e6e6;
+    border-bottom: 1px solid #f2e6e6;
+    padding: 5rem 0 4.5rem;
+    overflow: hidden;
+  }
+
+  .header-container {
+    margin-bottom: 2.5rem;
+  }
+
+  .overview-header {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .overview-tag {
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    display: inline-block;
+    margin-bottom: 0.4rem;
+  }
+
+  .overview-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+
+  .overview-subtitle {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin: 0;
+    font-style: italic;
+  }
+
+  /* Glider Carousel Viewport */
+  .glider-carousel-viewport {
+    width: 100%;
+    overflow: hidden;
+    padding: 1.5rem 0;
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  }
+
+  .glider-track {
+    display: flex;
+    gap: 1.85rem;
+    width: max-content;
+    animation: glideRight 38s linear infinite;
+  }
+
+  .glider-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes glideRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  /* Bookbinder Card with Draped Bookmark Ribbon & Brass Corners */
+  .book-binder-card {
+    position: relative;
+    width: 330px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 2.25rem 1.85rem 1.85rem 2.2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(41, 37, 36, 0.04);
+  }
+
+  .book-binder-card:hover {
+    border-color: var(--color-border-dark);
+    box-shadow: 0 10px 24px rgba(41, 37, 36, 0.08);
+    transform: translateY(-4px);
+  }
+
+  /* Draped Silk Bookmark Ribbon on the Card */
+  .card-bookmark-ribbon {
+    position: absolute;
+    top: 0;
+    right: 28px;
+    width: 14px;
+    height: 38px;
+    background: var(--color-accent);
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+  }
+
+  .bookmark-tail {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: inherit;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  }
+
+  /* Brass Binder Corners on the Container */
+  .card-corner {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid var(--color-gold);
+    pointer-events: none;
+    z-index: 4;
+    opacity: 0.75;
+  }
+
+  .card-corner-tr { top: 6px; right: 6px; border-left: none; border-bottom: none; }
+  .card-corner-br { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+
+  /* Left Bookbinder Spine Edge with Stitches */
+  .card-binder-spine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 12px;
+    background: var(--color-bg-alt);
+    border-right: 1px solid var(--color-border-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1.5rem 0;
+  }
+
+  .spine-stitch {
+    width: 3px;
+    height: 10px;
+    background: var(--color-warm-brown);
+    opacity: 0.6;
+    border-radius: 1px;
+  }
+
+  .card-inner-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .card-chapter-label {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .card-category {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+  }
+
+  .card-title {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: var(--color-primary);
+  }
+
+  .card-description {
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+    margin-top: auto;
+  }
+
+  .explore-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  /* ----------------------------------------------------
+     Section 2: Selected Masterpieces (Clean White #ffffff)
+     Features 7 Randomly Rotating Bookbinder Covers
+     ---------------------------------------------------- */
+  .analyses-strip {
+    background: #ffffff;
+    padding: 5rem 0;
+  }
+
+  .strip-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .strip-header h2 {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0 0 0.35rem;
+  }
+
+  .strip-subtitle {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    margin: 0;
+    font-size: 0.95rem;
+    font-style: italic;
+  }
+
+  .view-link {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .view-link:hover {
+    text-decoration: underline;
+  }
+
+  .bookshelf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.25rem;
+  }
+
+  .book-physical-wrapper {
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .book-physical {
+    position: relative;
+    width: 100%;
+    max-width: 330px;
+    min-height: 440px;
+    background: var(--cover-bg);
+    border-radius: 4px 10px 10px 4px;
+    box-shadow: 
+      -3px 3px 8px rgba(0, 0, 0, 0.12),
+      8px 14px 22px rgba(28, 25, 23, 0.14);
+    display: flex;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: rotateY(-4deg);
+    transform-style: preserve-3d;
+  }
+
+  .book-physical-wrapper:hover .book-physical {
+    transform: rotateY(-1deg) translateY(-8px) scale(1.02);
+    box-shadow: 
+      -5px 6px 12px rgba(0, 0, 0, 0.15),
+      12px 20px 30px rgba(28, 25, 23, 0.2);
+  }
+
+  .binder-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--cover-border);
+    pointer-events: none;
+    z-index: 5;
+  }
+  .corner-top-right { top: 6px; right: 6px; border-left: none; border-bottom: none; }
+  .corner-bottom-right { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+
+  .book-physical-spine {
+    width: 24px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.45) 0%, rgba(255, 255, 255, 0.12) 40%, rgba(0, 0, 0, 0.3) 100%);
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px 0 0 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2.5rem 0;
+  }
+
+  .spine-rib {
+    height: 3px;
+    background: var(--cover-border);
+    margin: 0 2px;
+    border-radius: 1px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+
+  .cover-hinge-groove {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 27px;
+    width: 1px;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .book-physical-cover {
+    flex: 1;
+    padding: 1.5rem 1.25rem 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--cover-text);
+  }
+
+  .book-inner-border {
+    height: 100%;
+    border: 1px solid var(--cover-border);
+    border-radius: 4px;
+    padding: 1.25rem 1rem;
+    box-shadow: inset 0 0 0 1px rgba(217, 119, 6, 0.25);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .book-lens-badge { font-size: 0.72rem; font-family: var(--font-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cover-accent); margin-bottom: 0.5rem; }
+  .book-work-title { font-family: var(--font-heading); font-size: 1.55rem; font-weight: 600; color: #ffffff; margin: 0 0 0.35rem; line-height: 1.2; }
+  .book-author-line { font-family: var(--font-body); font-size: 0.85rem; color: var(--cover-accent); font-style: italic; margin-bottom: 0.5rem; }
+  .book-fleuron { color: var(--cover-border); font-size: 0.85rem; margin: 0.25rem 0 0.65rem; opacity: 0.75; }
+  .book-excerpt-text {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--cover-text);
+    opacity: 0.9;
+    margin: 0 0 1rem;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+  }
+  .book-period-footer { font-size: 0.76rem; color: var(--cover-accent); letter-spacing: 0.05em; margin-bottom: 0.85rem; opacity: 0.85; }
+  .book-read-btn {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--cover-border);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    letter-spacing: 0.04em;
+  }
+  .book-read-btn:hover { background: var(--cover-border); color: #1c1917; }
+  .book-physical-pages {
+    width: 8px;
+    background: repeating-linear-gradient(to right, #fefae0 0px, #fefae0 1px, #e9edc9 1px, #e9edc9 2px);
+    border: 1px solid #d5cebf;
+    border-left: none;
+    border-radius: 0 3px 3px 0;
+    margin: 3px 0;
+  }
+
+  /* ----------------------------------------------------
+     Media Queries
+     ---------------------------------------------------- */
+  @media (max-width: 900px) {
+    .hero-container { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+    .hero-heading { font-size: 2.85rem; }
+    .hero-cta-row { justify-content: center; }
+    .floating-books-stage { display: none; }
+  }
+</style>
