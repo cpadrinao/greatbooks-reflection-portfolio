@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" shape-rendering="crispEdges">
+  <!-- THE RAMAYANA: The Royal Spires of Ayodhya & Sacred Dandaka Forest -->
+  <defs>
+    <linearGradient id="ayodhyaDawn" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c2d12"/>
+      <stop offset="50%" stop-color="#c2410c"/>
+      <stop offset="85%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="420" fill="url(#ayodhyaDawn)" opacity="0.5"/>
+
+  <!-- Morning Sun of the Suryavansha (Solar Lineage) -->
+  <g fill="#fef08a" opacity="0.65">
+    <rect x="470" y="80" width="60" height="60"/>
+    <rect x="460" y="90" width="80" height="40"/>
+    <rect x="480" y="70" width="40" height="80"/>
+  </g>
+
+  <!-- Distant Golden Towers & Spires of Ayodhya -->
+  <!-- Left Grand Temple Spire (Shikhara) -->
+  <g fill="#78350f" opacity="0.6">
+    <polygon points="180,380 140,240 180,110 220,240"/>
+    <rect x="175" y="85" width="10" height="25" fill="#d97706"/>
+    <rect x="160" y="240" width="40" height="140"/>
+  </g>
+
+  <!-- Central Grand Royal Palace of Dasharatha / Rama -->
+  <g fill="#451a03" opacity="0.75">
+    <!-- Main Center Tower Spires -->
+    <polygon points="500,80 460,200 540,200"/>
+    <rect x="495" y="55" width="10" height="25" fill="#fef08a"/>
+    <rect x="440" y="200" width="120" height="200"/>
+    <!-- Grand Royal Pavilion Gateway -->
+    <rect x="410" y="230" width="180" height="170"/>
+    <rect x="460" y="280" width="80" height="120" fill="#291002"/>
+    <!-- Palace Arches & Windows -->
+    <rect x="450" y="220" width="20" height="35" fill="#fef3c7" opacity="0.8"/>
+    <rect x="530" y="220" width="20" height="35" fill="#fef3c7" opacity="0.8"/>
+  </g>
+
+  <!-- Right Royal Palace Spire -->
+  <g fill="#78350f" opacity="0.6">
+    <polygon points="820,380 780,240 820,110 860,240"/>
+    <rect x="815" y="85" width="10" height="25" fill="#d97706"/>
+    <rect x="800" y="240" width="40" height="140"/>
+  </g>
+
+  <!-- Connecting City Walls with Indian Battlements -->
+  <g fill="#5a2305" opacity="0.65">
+    <rect x="220" y="270" width="190" height="130"/>
+    <rect x="590" y="270" width="190" height="130"/>
+    <!-- Wall crenellations -->
+    <rect x="220" y="250" width="20" height="20"/>
+    <rect x="260" y="250" width="20" height="20"/>
+    <rect x="300" y="250" width="20" height="20"/>
+    <rect x="340" y="250" width="20" height="20"/>
+    <rect x="380" y="250" width="20" height="20"/>
+
+    <rect x="600" y="250" width="20" height="20"/>
+    <rect x="640" y="250" width="20" height="20"/>
+    <rect x="680" y="250" width="20" height="20"/>
+    <rect x="720" y="250" width="20" height="20"/>
+    <rect x="760" y="250" width="20" height="20"/>
+  </g>
+
+  <!-- Sacred River Sarayu & Forest Hermitage Floor -->
+  <rect x="0" y="400" width="1000" height="200" fill="#291002" opacity="0.75"/>
+  <!-- River Reflection -->
+  <polygon points="350,440 650,440 780,600 220,600" fill="#0284c7" opacity="0.3"/>
+
+  <!-- Dandaka Forest Palm Trees Framing the City -->
+  <g fill="#14532d" opacity="0.7">
+    <!-- Left Palms -->
+    <rect x="50" y="280" width="14" height="180" fill="#451a03"/>
+    <polygon points="57,280 -10,240 20,290" fill="#15803d"/>
+    <polygon points="57,280 40,210 70,270" fill="#166534"/>
+    <polygon points="57,280 130,230 90,290" fill="#15803d"/>
+    <!-- Right Palms -->
+    <rect x="940" y="280" width="14" height="180" fill="#451a03"/>
+    <polygon points="947,280 870,230 910,290" fill="#15803d"/>
+    <polygon points="947,280 940,210 960,270" fill="#166534"/>
+    <polygon points="947,280 1010,240 980,290" fill="#15803d"/>
+  </g>
+</svg>

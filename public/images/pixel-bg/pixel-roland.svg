@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" shape-rendering="crispEdges">
+  <!-- THE SONG OF ROLAND: The Rugged Mountain Pass of Roncevaux in the Pyrenees -->
+  <defs>
+    <linearGradient id="pyreneesSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="85%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="380" fill="url(#pyreneesSky)" opacity="0.5"/>
+
+  <!-- High Jagged Pyrenees Mountain Peaks -->
+  <!-- Background Ridge -->
+  <polygon points="0,350 140,140 280,350" fill="#1e293b" opacity="0.5"/>
+  <polygon points="180,350 360,90 540,350" fill="#0f172a" opacity="0.6"/>
+  <polygon points="460,350 640,110 820,350" fill="#1e293b" opacity="0.5"/>
+  <polygon points="720,350 880,150 1000,350" fill="#0f172a" opacity="0.6"/>
+
+  <!-- Snow Caps on Jagged Peaks -->
+  <polygon points="360,90 325,145 360,135 395,145" fill="#f8fafc" opacity="0.8"/>
+  <polygon points="640,110 610,160 640,150 670,160" fill="#f8fafc" opacity="0.75"/>
+  <polygon points="140,140 115,180 140,170 165,180" fill="#f8fafc" opacity="0.7"/>
+
+  <!-- The Narrow Mountain Defile / Canyon Gorge (The Pass of Roncevaux) -->
+  <polygon points="0,600 0,320 380,380 440,600" fill="#0f172a" opacity="0.75"/>
+  <polygon points="1000,600 1000,320 620,380 560,600" fill="#0f172a" opacity="0.75"/>
+
+  <!-- Pine Forests of the Pyrenees (Stepped Triangle Conifers) -->
+  <g fill="#064e3b" opacity="0.65">
+    <!-- Left Pines -->
+    <polygon points="80,380 60,440 100,440"/>
+    <polygon points="80,350 65,400 95,400"/>
+    <polygon points="140,400 120,460 160,460"/>
+    <polygon points="140,370 125,420 155,420"/>
+    <polygon points="220,420 195,490 245,490"/>
+    <polygon points="220,385 200,440 240,440"/>
+
+    <!-- Right Pines -->
+    <polygon points="760,420 735,490 785,490"/>
+    <polygon points="760,385 740,440 780,440"/>
+    <polygon points="840,400 820,460 860,460"/>
+    <polygon points="840,370 825,420 855,420"/>
+    <polygon points="920,380 900,440 940,440"/>
+    <polygon points="920,350 905,400 935,400"/>
+  </g>
+
+  <!-- Medieval Stone Waymarker Cross at Roncevaux Pass Summit -->
+  <g fill="#cbd5e1" opacity="0.8">
+    <rect x="495" y="320" width="10" height="70"/>
+    <rect x="480" y="335" width="40" height="10"/>
+    <rect x="490" y="385" width="20" height="15" fill="#475569"/>
+  </g>
+
+  <!-- Rocky Path through the Defile -->
+  <polygon points="380,380 620,380 700,600 300,600" fill="#1e293b" opacity="0.7"/>
+
+  <!-- Pine tree trunks and mist -->
+  <rect x="0" y="520" width="1000" height="80" fill="#020617" opacity="0.85"/>
+</svg>

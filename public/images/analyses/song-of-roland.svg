@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="roncevauxPass" cx="50%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+    <linearGradient id="bladeSteel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="goldHilt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#roncevauxPass)"/>
+  <rect x="16" y="16" width="568" height="368" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+  <rect x="24" y="24" width="552" height="352" fill="none" stroke="#cbd5e1" stroke-width="0.75" opacity="0.25"/>
+
+  <!-- Pyrenees Mountains at Twilight -->
+  <polygon points="40,280 160,110 260,280" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <polygon points="200,280 300,80 420,280" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+  <polygon points="360,280 470,130 580,280" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <!-- Mountain snowcaps -->
+  <polygon points="160,110 135,150 160,140 185,150" fill="#f8fafc" opacity="0.6"/>
+  <polygon points="300,80 270,130 300,120 330,130" fill="#f8fafc" opacity="0.75"/>
+  <polygon points="470,130 445,170 470,160 495,170" fill="#f8fafc" opacity="0.6"/>
+
+  <!-- Roland's Legendary Sword Durendal (Planted in the Rock) -->
+  <g transform="translate(250, 45)">
+    <!-- Pommel (containing sacred relics) -->
+    <circle cx="0" cy="0" r="14" fill="url(#goldHilt)" stroke="#78350f" stroke-width="2"/>
+    <circle cx="0" cy="0" r="6" fill="#881337"/>
+    <!-- Grip with wire wrap -->
+    <rect x="-6" y="14" width="12" height="38" rx="2" fill="#78350f" stroke="#451a03" stroke-width="1"/>
+    <!-- Crossguard -->
+    <path d="M -42 52 Q -42 60, -32 58 L 32 58 Q 42 60, 42 52 L 36 48 L -36 48 Z" fill="url(#goldHilt)" stroke="#78350f" stroke-width="1.5"/>
+    <!-- Double-edged Blade with central fuller -->
+    <polygon points="-10,58 10,58 7,220 0,245 -7,220" fill="url(#bladeSteel)" stroke="#64748b" stroke-width="1.5"/>
+    <line x1="0" y1="62" x2="0" y2="200" stroke="#94a3b8" stroke-width="1.5"/>
+  </g>
+
+  <!-- The Ivory Horn Olifant -->
+  <g transform="translate(360, 205) rotate(-25) scale(0.95)">
+    <!-- Horn curved body -->
+    <path d="M 0 0 C 40 5, 80 30, 95 65 C 100 80, 80 85, 70 70 C 55 45, 30 25, 0 16 Z" fill="#fefae0" stroke="#d97706" stroke-width="2"/>
+    <!-- Carved Gold Bands on Olifant -->
+    <path d="M 25 8 L 22 22" stroke="#d97706" stroke-width="3"/>
+    <path d="M 55 24 L 48 44" stroke="#d97706" stroke-width="3"/>
+    <!-- Mouthpiece -->
+    <rect x="-8" y="-4" width="10" height="12" rx="2" fill="#d97706"/>
+    <!-- Bell rim -->
+    <ellipse cx="85" cy="72" rx="14" ry="8" fill="#fef08a" stroke="#b45309" stroke-width="1.5"/>
+  </g>
+
+  <!-- Heraldic Fleur-de-lis & Chivalric Cross (Symbols of Charlemagne) -->
+  <g transform="translate(100, 100) scale(0.7)" fill="#fbbf24" stroke="#d97706" stroke-width="1.5">
+    <!-- Fleur-de-lis central leaf -->
+    <path d="M 0 -30 C 10 -15, 10 5, 0 20 C -10 5, -10 -15, 0 -30 Z"/>
+    <path d="M 0 0 C 25 -15, 30 10, 8 18 C 15 25, 5 30, 0 25 C -5 30, -15 25, -8 18 C -30 10, -25 -15, 0 0 Z"/>
+    <rect x="-14" y="10" width="28" height="4" rx="1" fill="#b45309"/>
+  </g>
+
+  <!-- Rocky Outcrop / Roncevaux Defile -->
+  <path d="M 0 280 Q 200 240, 320 270 T 600 260 L 600 400 L 0 400 Z" fill="#0b1320" stroke="#d97706" stroke-width="1"/>
+
+  <!-- Classical Plaque Caption -->
+  <g transform="translate(300, 370)" text-anchor="middle">
+    <rect x="-120" y="-16" width="240" height="24" rx="3" fill="#0b1320" stroke="#d97706" stroke-width="1"/>
+    <text y="1" font-family="'Libre Baskerville', Georgia, serif" font-size="12" fill="#fef08a" letter-spacing="1.5">THE SONG OF ROLAND</text>
+  </g>
+</svg>

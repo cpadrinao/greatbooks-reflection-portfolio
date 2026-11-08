@@ -7,7 +7,7 @@ const sections = [
     title: "Student Profile",
     route: "/profile",
     description: "An introduction presenting personal background, reading interests, and academic journey in the Great Books course.",
-    category: "About the Reader",
+    category: "Literary Analyzer",
     chapter: "Chapter I"
   },
   {
@@ -25,20 +25,16 @@ const sections = [
     chapter: "Chapter III"
   },
   {
-    title: "Learning Summary",
-    route: "/summary",
-    description: "A synthesis of key historical periods, critical lenses, cultural worldviews, and interpretive skills developed during the course.",
-    category: "Academic Synthesis",
-    chapter: "Chapter IV"
-  },
-  {
-    title: "Personal Reflection",
+    title: "Learning Summary & Reflection",
     route: "/reflection",
-    description: "Reflections on reading challenges, intellectual breakthroughs, influential critical approaches, and ethical lessons.",
+    description: "A unified synthesis combining core academic takeaways, critical lenses, and personal reading reflections across our Great Books journey.",
     category: "Reflections & Values",
-    chapter: "Chapter V"
+    chapter: "Chapter IV"
   }
 ];
+
+// 3 repetitions = 12 cards per sequence (4,320px wide), ensuring seamless looping with zero empty space on all screens up to 4K
+const carouselSequence = [...sections, ...sections, ...sections];
 
 const coverThemes = [
   { bg: "#182635", border: "#d97706", accentColor: "#fbbf24", textLight: "#f1f5f9" },
@@ -194,8 +190,8 @@ const coverThemes = [
     <!-- Smooth Left-to-Right Moving Glider Rail (Pauses on Hover) -->
     <div class="glider-carousel-viewport">
       <div class="glider-track">
-        <!-- Sequence 1 -->
-        {sections.map((sec) => (
+        <!-- Sequence 1 (12 cards) -->
+        {carouselSequence.map((sec) => (
           <a href={sec.route} class="hub-card book-binder-card">
             <!-- Draped Silk Bookmark Ribbon -->
             <div class="card-bookmark-ribbon">
@@ -229,8 +225,8 @@ const coverThemes = [
           </a>
         ))}
 
-        <!-- Duplicated Sequence for Continuous Seamless Loop -->
-        {sections.map((sec) => (
+        <!-- Duplicated Sequence 2 for Continuous Seamless Loop (12 cards) -->
+        {carouselSequence.map((sec) => (
           <a href={sec.route} class="hub-card book-binder-card" aria-hidden="true">
             <div class="card-bookmark-ribbon">
               <div class="bookmark-tail"></div>
@@ -310,7 +306,7 @@ const coverThemes = [
                 <!-- Book Cover Face -->
                 <div class="book-physical-cover">
                   <div class="book-inner-border">
-                    <div class="book-lens-badge">{item.lens.split('/')[0]}</div>
+                    <div class="book-lens-badge">{item.lens}</div>
                     <h3 class="book-work-title">{item.title}</h3>
                     <div class="book-author-line">By {item.author}</div>
                     <div class="book-fleuron">&#10086;</div>
@@ -448,12 +444,12 @@ const coverThemes = [
 
   .hero-heading {
     font-family: var(--font-heading);
-    font-size: 3.75rem;
-    font-weight: 600;
-    line-height: 1.08;
+    font-size: 3.35rem;
+    font-weight: 700;
+    line-height: 1.15;
     color: var(--color-primary);
     margin: 0 0 1.25rem;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.01em;
   }
 
   .hero-lead {
@@ -694,8 +690,8 @@ const coverThemes = [
 
   .overview-header h2 {
     font-family: var(--font-heading);
-    font-size: 2.4rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    font-weight: 700;
     margin: 0 0 0.5rem;
   }
 
@@ -720,7 +716,8 @@ const coverThemes = [
     display: flex;
     gap: 1.85rem;
     width: max-content;
-    animation: glideRight 38s linear infinite;
+    will-change: transform;
+    animation: glideRight 75s linear infinite;
   }
 
   .glider-track:hover {
@@ -844,8 +841,8 @@ const coverThemes = [
 
   .card-title {
     font-family: var(--font-heading);
-    font-size: 1.45rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 700;
     margin: 0 0 0.5rem;
     color: var(--color-primary);
   }
@@ -891,8 +888,8 @@ const coverThemes = [
 
   .strip-header h2 {
     font-family: var(--font-heading);
-    font-size: 2.4rem;
-    font-weight: 600;
+    font-size: 2.2rem;
+    font-weight: 700;
     margin: 0 0 0.35rem;
   }
 
@@ -1010,7 +1007,7 @@ const coverThemes = [
   }
 
   .book-lens-badge { font-size: 0.72rem; font-family: var(--font-body); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cover-accent); margin-bottom: 0.5rem; }
-  .book-work-title { font-family: var(--font-heading); font-size: 1.55rem; font-weight: 600; color: #ffffff; margin: 0 0 0.35rem; line-height: 1.2; }
+  .book-work-title { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: #ffffff; margin: 0 0 0.35rem; line-height: 1.25; }
   .book-author-line { font-family: var(--font-body); font-size: 0.85rem; color: var(--cover-accent); font-style: italic; margin-bottom: 0.5rem; }
   .book-fleuron { color: var(--cover-border); font-size: 0.85rem; margin: 0.25rem 0 0.65rem; opacity: 0.75; }
   .book-excerpt-text {

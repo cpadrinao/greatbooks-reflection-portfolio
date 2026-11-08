@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" shape-rendering="crispEdges">
+  <!-- THE MAHABHARATA: The Battlefield Plain of Kurukshetra at Twilight -->
+  <defs>
+    <linearGradient id="kurukshetraDusk" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#450a0a"/>
+      <stop offset="45%" stop-color="#881337"/>
+      <stop offset="80%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#fef08a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="380" fill="url(#kurukshetraDusk)" opacity="0.55"/>
+
+  <!-- Dramatic War Sky Cloud Ribbons -->
+  <g fill="#2e0505" opacity="0.4">
+    <rect x="60" y="60" width="280" height="12"/>
+    <rect x="120" y="72" width="220" height="8"/>
+    <rect x="650" y="80" width="300" height="14"/>
+    <rect x="700" y="94" width="200" height="8"/>
+  </g>
+
+  <!-- Distant Army Encampments & Royal War Tents on Horizon -->
+  <g fill="#3f0713" opacity="0.6">
+    <!-- Row of War Tents (Pandava & Kaurava Camps) -->
+    <polygon points="40,360 80,280 120,360"/>
+    <polygon points="100,360 140,290 180,360"/>
+    <polygon points="160,360 210,270 260,360"/>
+
+    <polygon points="740,360 790,270 840,360"/>
+    <polygon points="820,360 860,290 900,360"/>
+    <polygon points="880,360 920,280 960,360"/>
+  </g>
+
+  <!-- High War Banners & Standards Fluttering on the Plain -->
+  <g stroke="#d97706" stroke-width="4">
+    <!-- Left Banner -->
+    <line x1="210" y1="120" x2="210" y2="360"/>
+    <!-- Center Grand Chariot Standard of Arjuna (Hanuman Flag) -->
+    <line x1="500" y1="80" x2="500" y2="400"/>
+    <!-- Right Banner -->
+    <line x1="790" y1="120" x2="790" y2="360"/>
+  </g>
+  <!-- Flag Pennants -->
+  <g fill="#b91c1c" opacity="0.8">
+    <polygon points="214,130 290,150 214,170"/>
+    <polygon points="504,95 620,125 504,155"/>
+    <polygon points="794,130 870,150 794,170"/>
+  </g>
+
+  <!-- Center Grand War Chariot Silhouettes (Ratha) -->
+  <g fill="#180408" opacity="0.85">
+    <!-- Chariot Body -->
+    <rect x="440" y="320" width="120" height="60"/>
+    <rect x="420" y="350" width="160" height="30"/>
+    <!-- Canopy Shield -->
+    <polygon points="420,320 500,240 580,320"/>
+
+    <!-- Left Great Chariot Wheel -->
+    <circle cx="430" cy="410" r="48" fill="#78350f"/>
+    <circle cx="430" cy="410" r="38" fill="#180408"/>
+    <circle cx="430" cy="410" r="14" fill="#d97706"/>
+    <!-- Right Great Chariot Wheel -->
+    <circle cx="570" cy="410" r="48" fill="#78350f"/>
+    <circle cx="570" cy="410" r="38" fill="#180408"/>
+    <circle cx="570" cy="410" r="14" fill="#d97706"/>
+  </g>
+
+  <!-- Expansive Plains of Kurukshetra Foreground -->
+  <rect x="0" y="380" width="1000" height="220" fill="#110404" opacity="0.75"/>
+  <rect x="0" y="440" width="1000" height="160" fill="#090202" opacity="0.85"/>
+
+  <!-- Pixel Earth / Dust Strata of the Battleground -->
+  <g fill="#d97706" opacity="0.35">
+    <rect x="60" y="420" width="180" height="4"/>
+    <rect x="300" y="460" width="220" height="4"/>
+    <rect x="640" y="430" width="160" height="4"/>
+    <rect x="780" y="480" width="180" height="4"/>
+    <rect x="150" y="520" width="260" height="4"/>
+    <rect x="580" y="530" width="240" height="4"/>
+  </g>
+</svg>

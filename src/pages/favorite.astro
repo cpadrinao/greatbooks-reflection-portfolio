@@ -2,71 +2,102 @@
 import Layout from '../layouts/Layout.astro';
 
 const favorite = {
-  title: "Lorem Ipsum Masterpiece (Sample Title)",
-  author: "Author Placeholder",
-  period: "Historical Period Placeholder (c. 1300)",
-  primaryTheme: "Lorem Ipsum Dolor Sit Amet Consectetur Adipiscing Elit",
-  quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  overview: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio.",
+  title: "The Iliad",
+  author: "Homer",
+  period: "Ancient Greece (c. 8th Century BCE)",
+  lens: "Formalist / New Critical Lens",
+  lensDefinition: "Examining Homer's poetic craftsmanship—ring composition, recurring epithets, the symbolism of Achilles’ celestial shield, and the tragic irony of mortal glory.",
+  primaryTheme: "The Wrath of Achilles, the Tragedy of War, and Shared Human Compassion",
+  quote: "Sing, Goddess, the wrath of Achilles, Peleus' son, the destructive wrath that brought countless sorrows upon the Achaeans...",
+  plateImage: "/images/analyses/iliad.svg",
+  pixelBg: "/images/pixel-bg/pixel-iliad.svg",
+  overview: "Set during the tenth and final year of the Trojan War, The Iliad does not try to tell the entire decade-long war from beginning to end. Instead, Homer focuses intensely on a few tragic weeks centered around the anger, withdrawal, and devastating grief of Greece's greatest warrior, Achilles. When King Agamemnon publicly dishonors him, Achilles angrily pulls his troops from battle, leaving the Greek army on the brink of disaster. The war only turns when Achilles' closest friend, Patroclus, takes Achilles' armor to rescue his comrades and is killed by the Trojan prince Hector. Shattered by guilt and rage, Achilles returns to the battlefield, kills Hector, and desecrates his body—until an unforgettable night meeting with Hector's grieving father, King Priam, finally restores his humanity.",
   reasonsForChoice: [
     {
       title: "Lorem Ipsum Rationale Alpha",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
       title: "Lorem Ipsum Rationale Beta",
-      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
+      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
     },
     {
       title: "Lorem Ipsum Rationale Gamma",
-      desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem."
+      desc: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
     }
   ],
   themesAndCharacters: {
     characters: [
-      { name: "Character Archetype Alpha", role: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum." },
-      { name: "Character Archetype Beta", role: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam." },
-      { name: "Character Archetype Gamma", role: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti." }
+      { 
+        name: "Achilles", 
+        role: "The fiercest warrior of Greece, torn between fragile pride, uncontrollable grief, and a haunting awareness that glorious war only leads to an early grave." 
+      },
+      { 
+        name: "Hector", 
+        role: "Crown prince and chief defender of Troy, fighting not out of bloodlust or personal ambition, but out of devotion to protect his family, city, and people." 
+      },
+      { 
+        name: "Patroclus", 
+        role: "Achilles' beloved companion whose tender empathy for the suffering Greek soldiers leads him to lead the troops into battle, triggering the epic's climax." 
+      },
+      { 
+        name: "King Priam", 
+        role: "The aged monarch of Troy who displays extraordinary courage by slipping into the enemy camp alone to kneel before Achilles and beg for the return of Hector's body." 
+      }
     ],
-    lessons: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi."
+    lessons: "Homer strips away any artificial glamour from battlefield combat. The Iliad shows that war brings universal heartbreak to both sides of the trench, and that genuine greatness lies not in ruthless slaughter, but in recognizing our shared mortality and showing compassion to our enemies."
   },
   personalConnections: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 };
 ---
 
 <Layout 
-  title="Favorite Literary Masterpiece | Great Books Portfolio"
-  description="In-depth spotlight on my favorite literary masterpiece from the Great Books curriculum."
+  title="Favorite Literary Masterpiece | The Iliad"
+  description="In-depth spotlight on my favorite literary masterpiece: Homer's The Iliad."
 >
-  <div class="page-header-block">
+  <div class="favorite-stage-wrapper">
+    <!-- Full-Bleed Ambient Pixel Landscape Stage (Strictly Contained Above Footer) -->
+    <div class="full-bleed-pixel-stage" style={`background-image: url('${favorite.pixelBg}');`} aria-hidden="true"></div>
+
+    <div class="page-header-block">
     <div class="container">
       <span class="section-tag">Featured Selection</span>
       <h1>Favorite Literary Masterpiece</h1>
       <p class="lead-text">
-        An in-depth study of the most memorable work discussed throughout our Great Books curriculum.
+        An in-depth study of the most memorable work discussed throughout our Great Books curriculum: Homer's epic of anger, mortality, and compassion.
       </p>
     </div>
   </div>
 
   <div class="container container-reading favorite-content-area">
-    <!-- Spotlight Card (Classic Bookish Linen, Zero AI Gradients) -->
+    <!-- Spotlight Card (Classic Bookish Presentation) -->
     <div class="spotlight-card">
       <div class="spotlight-top">
-        <span class="tag tag-accent">Featured Work</span>
+        <span class="tag tag-accent">{favorite.lens}</span>
         <span class="period-text">{favorite.period}</span>
       </div>
       <h2 class="spotlight-title">{favorite.title}</h2>
       <div class="spotlight-author">By <strong>{favorite.author}</strong></div>
       
+      <!-- Symbolic Illustrated Plate -->
+      <div class="favorite-plate-frame">
+        <img 
+          src={favorite.plateImage} 
+          alt="The Iliad symbolic plate showing Achilles' celestial shield and Trojan walls" 
+          class="favorite-plate-img" 
+        />
+        <span class="plate-caption">The divine celestial shield of Achilles and the fortified walls of Troy</span>
+      </div>
+
       <div class="spotlight-quote-box">
         <blockquote>&ldquo;{favorite.quote}&rdquo;</blockquote>
-        <span class="quote-citation">Citation Reference Placeholder</span>
+        <span class="quote-citation">Homer, <em>The Iliad</em>, Book I, lines 1–2</span>
       </div>
     </div>
 
     <!-- Section 1: Overview -->
     <section class="editorial-section">
-      <h3 class="section-title">Overview of the Work</h3>
+      <h3 class="section-title">Overview of the Epic</h3>
       <div class="section-text">
         <p>{favorite.overview}</p>
       </div>
@@ -87,7 +118,7 @@ const favorite = {
 
     <!-- Section 3: Significant Themes & Characters -->
     <section class="editorial-section">
-      <h3 class="section-title">Significant Themes & Characters</h3>
+      <h3 class="section-title">Key Figures & Tragic Roles</h3>
       
       <div class="characters-list">
         {favorite.themesAndCharacters.characters.map((char) => (
@@ -106,7 +137,7 @@ const favorite = {
 
     <!-- Section 4: Personal Connections -->
     <section class="editorial-section">
-      <h3 class="section-title">Personal Realizations & Connections</h3>
+      <h3 class="section-title">Personal Realizations & Reflections</h3>
       <div class="section-text">
         <p>{favorite.personalConnections}</p>
       </div>
@@ -115,16 +146,58 @@ const favorite = {
     <!-- Next Section Navigation -->
     <div class="next-step-bar">
       <span>Continue reading:</span>
-      <a href="/summary" class="btn btn-primary">
-        Learning Summary &rarr;
+      <a href="/reflection" class="btn btn-primary">
+        Learning Summary & Reflection &rarr;
       </a>
     </div>
+  </div>
   </div>
 </Layout>
 
 <style>
+  /* Favorite Stage Wrapper: strictly isolates the stage and clips fixed elements above footer */
+  .favorite-stage-wrapper {
+    position: relative;
+    clip-path: inset(0 0 0 0);
+    padding-bottom: 4rem;
+  }
+
+  /* Full-Bleed Ambient Pixel Landscape Stage (Contained Strictly to Favorite Content) */
+  .full-bleed-pixel-stage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    opacity: 0.20;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page-header-block {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
   .favorite-content-area {
-    padding-bottom: 3.5rem;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 2rem;
+  }
+
+  .spotlight-card,
+  .editorial-section,
+  .next-step-bar {
+    position: relative;
+    z-index: 1;
   }
 
   .spotlight-card {
@@ -134,6 +207,7 @@ const favorite = {
     border-radius: 8px;
     padding: 2.5rem 2.25rem;
     margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-sm);
   }
 
   .spotlight-top {
@@ -167,33 +241,63 @@ const favorite = {
     color: var(--color-primary);
   }
 
+  /* Plate Frame */
+  .favorite-plate-frame {
+    margin-bottom: 1.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    overflow: hidden;
+    background: var(--color-bg);
+  }
+
+  .favorite-plate-img {
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .plate-caption {
+    display: block;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    font-style: italic;
+    background: #ffffff;
+    border-top: 1px solid var(--color-border);
+  }
+
   .spotlight-quote-box {
     background: var(--color-bg);
-    border-left: 3px solid var(--color-warm-brown);
+    border-left: 3px solid var(--color-accent);
     padding: 1.25rem 1.5rem;
     border-radius: 0 4px 4px 0;
   }
 
   .spotlight-quote-box blockquote {
-    margin: 0 0 0.5rem;
-    font-family: var(--font-serif);
     font-size: 1.05rem;
     font-style: italic;
     color: var(--color-primary);
-    line-height: 1.7;
+    margin: 0 0 0.5rem;
+    line-height: 1.6;
   }
 
   .quote-citation {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
+  /* Editorial Sections */
   .editorial-section {
     background: #ffffff;
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    padding: 2rem 2.25rem;
+    padding: 2.25rem;
     margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
   }
 
   .section-title {
@@ -205,8 +309,8 @@ const favorite = {
   }
 
   .section-text {
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 1.02rem;
+    line-height: 1.85;
     color: var(--color-text);
   }
 
@@ -250,43 +354,46 @@ const favorite = {
   .character-item {
     background: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-left: 3px solid var(--color-warm-brown);
-    border-radius: 4px;
-    padding: 0.85rem 1.25rem;
-  }
-
-  .char-name {
-    font-weight: 600;
-    color: var(--color-primary);
-    font-size: 0.95rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .char-role {
-    font-size: 0.88rem;
-    color: var(--color-text-muted);
-    line-height: 1.55;
-  }
-
-  .lesson-card {
-    background: #ffffff;
-    border: 1px solid var(--color-border);
-    border-left: 3px solid var(--color-accent);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 1rem 1.25rem;
   }
 
+  .char-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+    font-family: var(--font-heading);
+  }
+
+  .char-role {
+    font-size: 0.92rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .lesson-card {
+    background: #fff1f2;
+    border: 1px solid #fecdd3;
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
   .lesson-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--color-accent);
-    font-size: 0.9rem;
-    margin: 0 0 0.35rem;
+    margin: 0 0 0.5rem;
   }
 
   .lesson-text {
+    font-size: 0.95rem;
+    color: #4c0519;
+    line-height: 1.7;
     margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.65;
-    color: var(--color-text);
+    font-style: italic;
   }
 
   .next-step-bar {
@@ -321,15 +428,5 @@ const favorite = {
 
   .btn-primary:hover {
     background: var(--color-accent);
-  }
-
-  @media (max-width: 720px) {
-    .spotlight-card, .editorial-section {
-      padding: 1.5rem;
-    }
-
-    .spotlight-title {
-      font-size: 1.85rem;
-    }
   }
 </style>

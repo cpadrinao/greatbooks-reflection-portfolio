@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="forestGlow" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#2d4a3e"/>
+      <stop offset="65%" stop-color="#142820"/>
+      <stop offset="100%" stop-color="#091410"/>
+    </radialGradient>
+    <linearGradient id="warmAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="400" fill="url(#forestGlow)"/>
+  <rect x="16" y="16" width="568" height="368" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+  <rect x="24" y="24" width="552" height="352" fill="none" stroke="#86efac" stroke-width="0.75" opacity="0.25"/>
+
+  <!-- Ancient Banyan Tree Canopy -->
+  <g fill="#1b382b" stroke="#0f2319" stroke-width="1.5">
+    <!-- Canopy clouds -->
+    <circle cx="300" cy="110" r="85"/>
+    <circle cx="210" cy="130" r="70"/>
+    <circle cx="390" cy="130" r="70"/>
+    <circle cx="150" cy="170" r="50"/>
+    <circle cx="450" cy="170" r="50"/>
+  </g>
+
+  <!-- Foliage highlights -->
+  <g fill="#2d5a45" opacity="0.6">
+    <circle cx="290" cy="100" r="60"/>
+    <circle cx="230" cy="120" r="45"/>
+    <circle cx="370" cy="120" r="45"/>
+  </g>
+
+  <!-- Tree Trunk & Hanging Aerial Roots -->
+  <path d="M 270 280 Q 285 200, 260 150 Q 300 170, 340 150 Q 315 200, 330 280 Z" fill="#451a03" stroke="#291002" stroke-width="2"/>
+  <!-- Aerial roots -->
+  <path d="M 220 160 Q 215 220, 205 280" stroke="#78350f" stroke-width="1.5" fill="none"/>
+  <path d="M 380 160 Q 385 220, 395 280" stroke="#78350f" stroke-width="1.5" fill="none"/>
+  <path d="M 180 180 Q 175 230, 170 280" stroke="#78350f" stroke-width="1.2" fill="none"/>
+  <path d="M 420 180 Q 425 230, 430 280" stroke="#78350f" stroke-width="1.2" fill="none"/>
+
+  <!-- Wise Crow on Branch -->
+  <g transform="translate(230, 115) scale(0.9)">
+    <ellipse cx="0" cy="0" rx="14" ry="9" fill="#0f172a"/>
+    <circle cx="11" cy="-4" r="6" fill="#0f172a"/>
+    <polygon points="17,-4 25,-2 17,0" fill="#f59e0b"/>
+    <line x1="-5" y1="9" x2="-8" y2="16" stroke="#0f172a" stroke-width="2"/>
+  </g>
+
+  <!-- Noble Lion Silhouette (King of the Forest) -->
+  <g transform="translate(190, 255) scale(0.95)">
+    <path d="M 0 0 Q 15 -25, 35 -15 Q 45 -5, 45 10 L 40 25 L -10 25 L -5 10 Z" fill="#d97706"/>
+    <!-- Mane -->
+    <circle cx="32" cy="-8" r="16" fill="#b45309"/>
+    <circle cx="38" cy="-8" r="10" fill="#78350f"/>
+    <!-- Head -->
+    <circle cx="42" cy="-8" r="7" fill="#d97706"/>
+    <!-- Tail -->
+    <path d="M -10 20 Q -25 15, -20 0" stroke="#b45309" stroke-width="2.5" fill="none"/>
+  </g>
+
+  <!-- The Clever Jackal / Forest Companion -->
+  <g transform="translate(390, 255) scale(0.85)">
+    <path d="M 0 0 Q -15 -18, -30 -12 Q -38 -5, -35 10 L -30 25 L 10 25 L 5 10 Z" fill="#b45309"/>
+    <!-- Ears -->
+    <polygon points="-32,-14 -35,-25 -28,-18" fill="#78350f"/>
+    <polygon points="-24,-14 -22,-25 -18,-16" fill="#78350f"/>
+    <!-- Tail -->
+    <path d="M 10 20 Q 28 10, 22 -5" stroke="#78350f" stroke-width="3" fill="none"/>
+  </g>
+
+  <!-- The Sacred Scroll of Niti (Practical Wisdom) -->
+  <g transform="translate(300, 280)">
+    <ellipse cx="0" cy="0" rx="38" ry="12" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+    <path d="M -30 -3 L 30 -3 M -25 2 L 25 2" stroke="#78350f" stroke-width="1" stroke-dasharray="2,2"/>
+  </g>
+
+  <!-- Ground Mound -->
+  <path d="M 0 320 Q 300 290, 600 320 L 600 400 L 0 400 Z" fill="#0c1a14" stroke="#d97706" stroke-width="1"/>
+
+  <!-- Classical Plaque Caption -->
+  <g transform="translate(300, 370)" text-anchor="middle">
+    <rect x="-120" y="-16" width="240" height="24" rx="3" fill="#091410" stroke="#d97706" stroke-width="1"/>
+    <text y="1" font-family="'Libre Baskerville', Georgia, serif" font-size="12" fill="#fef08a" letter-spacing="1.5">THE PANCHATANTRA</text>
+  </g>
+</svg>

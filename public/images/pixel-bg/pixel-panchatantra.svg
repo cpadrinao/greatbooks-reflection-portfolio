@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" shape-rendering="crispEdges">
+  <!-- THE PANCHATANTRA: Deep Ancient Indian Jungle Sanctuary & Riverbank -->
+  <defs>
+    <linearGradient id="jungleSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="60%" stop-color="#047857"/>
+      <stop offset="100%" stop-color="#a7f3d0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky Filtered through Canopy -->
+  <rect width="1000" height="400" fill="url(#jungleSky)" opacity="0.45"/>
+
+  <!-- Distant Jungle Canopy Horizon -->
+  <g fill="#064e3b" opacity="0.5">
+    <circle cx="80" cy="280" r="120"/>
+    <circle cx="220" cy="270" r="140"/>
+    <circle cx="380" cy="290" r="130"/>
+    <circle cx="620" cy="280" r="130"/>
+    <circle cx="780" cy="270" r="140"/>
+    <circle cx="920" cy="280" r="120"/>
+  </g>
+
+  <!-- Massive Ancient Banyan Tree (Center Stage) -->
+  <!-- Colossal Sprawling Canopy Layers -->
+  <g fill="#065f46" opacity="0.65">
+    <rect x="250" y="60" width="500" height="40"/>
+    <rect x="180" y="90" width="640" height="50"/>
+    <rect x="120" y="130" width="760" height="60"/>
+    <rect x="90" y="180" width="820" height="50"/>
+  </g>
+  <g fill="#047857" opacity="0.5">
+    <rect x="280" y="80" width="440" height="30"/>
+    <rect x="200" y="110" width="600" height="40"/>
+    <rect x="150" y="150" width="700" height="40"/>
+  </g>
+
+  <!-- Thick Banyan Tree Trunk & Twisted Aerial Root Columns -->
+  <g fill="#451a03" opacity="0.75">
+    <!-- Main Center Trunk -->
+    <rect x="440" y="220" width="120" height="260"/>
+    <!-- Supporting Root Pillars (Banyan Aerial Pillars) -->
+    <rect x="280" y="210" width="30" height="270"/>
+    <rect x="360" y="220" width="24" height="260"/>
+    <rect x="620" y="220" width="24" height="260"/>
+    <rect x="700" y="210" width="30" height="270"/>
+    <!-- Thin hanging aerial roots -->
+    <rect x="220" y="200" width="8" height="180"/>
+    <rect x="780" y="200" width="8" height="180"/>
+    <rect x="160" y="220" width="6" height="140"/>
+    <rect x="840" y="220" width="6" height="140"/>
+  </g>
+
+  <!-- Jungle River / Stream Passing Through Forest Floor -->
+  <g fill="#0284c7" opacity="0.35">
+    <polygon points="420,440 580,440 680,600 320,600"/>
+  </g>
+
+  <!-- Grassy Forest Banks & Earth Floor -->
+  <polygon points="0,450 340,450 320,600 0,600" fill="#064e3b" opacity="0.8"/>
+  <polygon points="660,450 1000,450 1000,600 680,600" fill="#064e3b" opacity="0.8"/>
+
+  <!-- Pixel Vines & Leaves Accents -->
+  <g fill="#86efac" opacity="0.5">
+    <rect x="300" y="120" width="12" height="12"/>
+    <rect x="380" y="140" width="14" height="14"/>
+    <rect x="600" y="130" width="14" height="14"/>
+    <rect x="680" y="150" width="12" height="12"/>
+    <rect x="180" y="190" width="10" height="10"/>
+    <rect x="800" y="190" width="10" height="10"/>
+  </g>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" shape-rendering="crispEdges">
+  <!-- THE ODYSSEY: Rocky Coastal Cliffs of Ithaca & Temple Colonnade over the Aegean Sea -->
+  <defs>
+    <linearGradient id="aegeanSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0c4a6e"/>
+      <stop offset="45%" stop-color="#0284c7"/>
+      <stop offset="85%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="380" fill="url(#aegeanSky)" opacity="0.45"/>
+
+  <!-- Distant Mediterranean Islands on the Horizon -->
+  <g fill="#075985" opacity="0.45">
+    <polygon points="40,280 120,240 220,280"/>
+    <polygon points="680,280 760,230 880,280"/>
+  </g>
+
+  <!-- Deep Blue Rolling Waves of the Aegean Sea -->
+  <rect x="0" y="280" width="1000" height="180" fill="#0369a1" opacity="0.45"/>
+  <rect x="0" y="320" width="1000" height="140" fill="#075985" opacity="0.55"/>
+  <g fill="#bae6fd" opacity="0.4">
+    <!-- Stepped pixel wave crests -->
+    <rect x="80" y="295" width="40" height="4"/><rect x="180" y="305" width="50" height="4"/>
+    <rect x="340" y="295" width="45" height="4"/><rect x="480" y="310" width="60" height="4"/>
+    <rect x="680" y="300" width="50" height="4"/><rect x="840" y="305" width="40" height="4"/>
+  </g>
+
+  <!-- High Rocky Island Cliff of Ithaca (Promontory) -->
+  <polygon points="260,600 280,260 720,260 740,600" fill="#1e293b" opacity="0.65"/>
+  <polygon points="290,600 310,300 690,300 710,600" fill="#0f172a" opacity="0.75"/>
+
+  <!-- Classical Greek Palace / Temple of Ithaca (Colonnade & Pediment) -->
+  <g fill="#f8fafc" opacity="0.75">
+    <!-- Stepped Temple Base (Crepidoma) -->
+    <rect x="330" y="270" width="340" height="8"/>
+    <rect x="340" y="260" width="320" height="10"/>
+
+    <!-- Fluted Greek Stone Columns -->
+    <rect x="360" y="150" width="16" height="110"/>
+    <rect x="410" y="150" width="16" height="110"/>
+    <rect x="460" y="150" width="16" height="110"/>
+    <rect x="524" y="150" width="16" height="110"/>
+    <rect x="574" y="150" width="16" height="110"/>
+    <rect x="624" y="150" width="16" height="110"/>
+
+    <!-- Capital / Architrave Beam -->
+    <rect x="345" y="135" width="310" height="15"/>
+
+    <!-- Classical Triangular Greek Pediment -->
+    <polygon points="340,135 500,70 660,135"/>
+    <polygon points="360,130 500,80 640,130" fill="#334155" opacity="0.6"/>
+  </g>
+
+  <!-- Olive Trees of Athena Framing the Cliffs -->
+  <g fill="#166534" opacity="0.7">
+    <!-- Left Olive Tree -->
+    <rect x="180" y="320" width="16" height="120" fill="#451a03"/>
+    <circle cx="188" cy="280" r="45"/>
+    <circle cx="155" cy="300" r="35"/>
+    <circle cx="220" cy="300" r="35"/>
+
+    <!-- Right Olive Tree -->
+    <rect x="800" y="320" width="16" height="120" fill="#451a03"/>
+    <circle cx="808" cy="280" r="45"/>
+    <circle cx="775" cy="300" r="35"/>
+    <circle cx="840" cy="300" r="35"/>
+  </g>
+
+  <!-- Foreground Shoreline Cliffs -->
+  <rect x="0" y="440" width="1000" height="160" fill="#020617" opacity="0.8"/>
+</svg>

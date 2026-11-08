@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <radialGradient id="skyGrad" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="60%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Plate -->
+  <rect width="600" height="400" fill="url(#skyGrad)"/>
+  <rect x="16" y="16" width="568" height="368" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+  <rect x="24" y="24" width="552" height="352" fill="none" stroke="#94a3b8" stroke-width="0.75" opacity="0.3"/>
+
+  <!-- Stars & Celestial Dust -->
+  <g fill="#fef08a" opacity="0.7">
+    <circle cx="80" cy="70" r="1.5"/><circle cx="140" cy="50" r="1"/><circle cx="210" cy="80" r="2"/>
+    <circle cx="390" cy="60" r="1.5"/><circle cx="480" cy="85" r="2"/><circle cx="520" cy="50" r="1"/>
+    <circle cx="95" cy="160" r="1"/><circle cx="510" cy="180" r="1.5"/><circle cx="120" cy="240" r="1"/>
+  </g>
+
+  <!-- The Great Cosmic Whirlwind Spirals -->
+  <g fill="none" stroke="url(#goldGlow)" stroke-linecap="round" opacity="0.85">
+    <path d="M 300 210 C 270 210, 260 190, 275 175 C 295 155, 335 160, 345 190 C 360 230, 310 260, 265 245 C 210 225, 205 145, 260 110 C 330 70, 420 100, 435 180 C 455 270, 340 330, 240 310 C 130 280, 110 140, 200 70 C 290 5, 460 30, 500 140" stroke-width="2.5"/>
+    <path d="M 300 205 C 315 205, 325 195, 320 185 C 310 170, 285 175, 280 190 C 270 215, 305 235, 325 225 C 355 210, 350 160, 320 135 C 275 105, 215 130, 205 180 C 190 240, 265 285, 330 270 C 400 250, 415 150, 350 100" stroke-width="1.5" stroke-dasharray="4,2"/>
+  </g>
+
+  <!-- Divine Lightning Flashes -->
+  <path d="M 300 30 L 290 90 L 315 110 L 295 180" fill="none" stroke="#fef08a" stroke-width="2" opacity="0.9"/>
+  <path d="M 440 70 L 425 115 L 445 130 L 430 175" fill="none" stroke="#fde047" stroke-width="1.2" opacity="0.75"/>
+  <path d="M 170 80 L 185 120 L 165 140 L 180 185" fill="none" stroke="#fde047" stroke-width="1.2" opacity="0.75"/>
+
+  <!-- Earthly Crag & Horizon -->
+  <path d="M 0 350 Q 150 330, 300 345 T 600 340 L 600 400 L 0 400 Z" fill="#0f172a" stroke="#d97706" stroke-width="1"/>
+  <path d="M 180 345 L 230 290 L 270 340 L 330 280 L 380 345 Z" fill="#1e293b" opacity="0.6"/>
+
+  <!-- Central Light / The Voice -->
+  <circle cx="300" cy="180" r="18" fill="#fef08a" opacity="0.3"/>
+  <circle cx="300" cy="180" r="8" fill="#ffffff" opacity="0.8"/>
+
+  <!-- Classical Plaque Caption -->
+  <g transform="translate(300, 370)" text-anchor="middle">
+    <rect x="-140" y="-16" width="280" height="24" rx="3" fill="#020617" stroke="#d97706" stroke-width="1"/>
+    <text y="1" font-family="'Libre Baskerville', Georgia, serif" font-size="12" fill="#fef08a" letter-spacing="1.5">VOICE OUT OF THE WHIRLWIND</text>
+  </g>
+</svg>

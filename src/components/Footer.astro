@@ -20,8 +20,7 @@ const currentYear = new Date().getFullYear();
           <li><a href="/profile">Student Profile</a></li>
           <li><a href="/analyses">Literary Analyses</a></li>
           <li><a href="/favorite">Favorite Masterpiece</a></li>
-          <li><a href="/summary">Learning Summary</a></li>
-          <li><a href="/reflection">Personal Reflection</a></li>
+          <li><a href="/reflection">Reflection & Summary</a></li>
         </ul>
       </div>
 
@@ -46,12 +45,14 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .site-footer {
+    position: relative;
+    z-index: 20;
     background: #ffffff;
     color: var(--color-text);
     border-top: 1px solid var(--color-border);
-    margin-top: 5rem;
-    padding-top: 3.5rem;
-    padding-bottom: 2rem;
+    margin-top: 0;
+    padding-top: 4rem;
+    padding-bottom: 2.5rem;
   }
 
   .footer-grid {

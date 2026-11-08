@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%" shape-rendering="crispEdges">
+  <!-- VOICE OUT OF THE WHIRLWIND: The Desert Wilderness of Uz under the Tempest -->
+  <defs>
+    <linearGradient id="stormSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="45%" stop-color="#0f172a"/>
+      <stop offset="85%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="420" fill="url(#stormSky)" opacity="0.6"/>
+
+  <!-- Pixel Celestial Stars in the Storm Gaps -->
+  <g fill="#fef08a" opacity="0.5">
+    <rect x="80" y="40" width="4" height="4"/><rect x="140" y="70" width="6" height="6"/><rect x="220" y="30" width="4" height="4"/>
+    <rect x="780" y="50" width="6" height="6"/><rect x="860" y="30" width="4" height="4"/><rect x="920" y="80" width="6" height="6"/>
+  </g>
+
+  <!-- Massive Towering Swirling Pixel Whirlwind (Funnel Cloud from Sky to Earth) -->
+  <g fill="#f59e0b" opacity="0.45">
+    <!-- Cloud base -->
+    <rect x="300" y="40" width="400" height="25"/>
+    <rect x="340" y="65" width="320" height="20"/>
+    <!-- Funnel Upper -->
+    <rect x="380" y="85" width="240" height="20"/>
+    <rect x="410" y="105" width="180" height="25"/>
+    <!-- Funnel Middle -->
+    <rect x="430" y="130" width="140" height="30"/>
+    <rect x="450" y="160" width="100" height="35"/>
+    <!-- Spiral Bands -->
+    <rect x="420" y="195" width="150" height="20"/>
+    <rect x="460" y="215" width="90" height="25"/>
+    <rect x="440" y="240" width="115" height="20"/>
+    <rect x="470" y="260" width="60" height="30"/>
+    <!-- Touchdown Vortex on Desert Floor -->
+    <rect x="480" y="290" width="40" height="35"/>
+    <rect x="488" y="325" width="24" height="40"/>
+    <rect x="494" y="365" width="12" height="30"/>
+  </g>
+
+  <!-- Pixel Lightning Strikes -->
+  <g fill="#fef08a" opacity="0.65">
+    <rect x="240" y="70" width="6" height="35"/>
+    <rect x="234" y="105" width="6" height="30"/>
+    <rect x="240" y="135" width="18" height="6"/>
+    <rect x="252" y="141" width="6" height="40"/>
+    <rect x="246" y="181" width="6" height="30"/>
+
+    <rect x="740" y="90" width="6" height="30"/>
+    <rect x="746" y="120" width="6" height="35"/>
+    <rect x="734" y="155" width="18" height="6"/>
+    <rect x="734" y="161" width="6" height="45"/>
+  </g>
+
+  <!-- Distant Desert Mesas & Rock Plateaus (Land of Uz) -->
+  <g fill="#1e293b" opacity="0.65">
+    <!-- Plateau Left -->
+    <polygon points="0,420 0,330 70,300 160,300 210,350 300,350 350,420"/>
+    <!-- Mesa Center Left -->
+    <polygon points="260,420 320,340 430,340 480,420"/>
+    <!-- Mesa Center Right -->
+    <polygon points="520,420 570,330 680,330 740,420"/>
+    <!-- Plateau Right -->
+    <polygon points="690,420 760,290 880,290 940,340 1000,340 1000,420"/>
+  </g>
+
+  <!-- Rocky Desert Foreground Canyon -->
+  <rect x="0" y="420" width="1000" height="180" fill="#0f172a" opacity="0.7"/>
+  <polygon points="0,480 150,440 280,470 420,430 600,480 780,440 920,470 1000,440 1000,600 0,600" fill="#020617" opacity="0.8"/>
+
+  <!-- Desert Strata Horizontal Pixel Lines -->
+  <g fill="#d97706" opacity="0.35">
+    <rect x="40" y="320" width="100" height="4"/>
+    <rect x="780" y="310" width="90" height="4"/>
+    <rect x="330" y="360" width="80" height="4"/>
+    <rect x="580" y="350" width="90" height="4"/>
+    <rect x="80" y="470" width="160" height="4"/>
+    <rect x="500" y="490" width="180" height="4"/>
+  </g>
+</svg>
