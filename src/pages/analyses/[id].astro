@@ -75,17 +75,17 @@ const nextAnalysis = currentIndex < analyses.length - 1 ? analyses[currentIndex 
         </div>
       </header>
 
-    <!-- Visual Representation Frame (Clean bookish plate) -->
+    <!-- Visual Representation Frame (Featured Artwork) -->
     <div class="visual-representation-box">
-      <div class="visual-canvas">
+      <div class:list={["visual-canvas", { "canvas-vertical": item.imageOrientation === "vertical" }]}>
         <img 
           src={item.imagePlaceholder} 
-          alt={`${item.title} illustrated plate`} 
-          class="analysis-article-plate-img" 
+          alt={`${item.title} artwork: ${item.visualDescription}`} 
+          class:list={["analysis-article-plate-img", { "plate-vertical": item.imageOrientation === "vertical" }]} 
         />
       </div>
       <div class="visual-meta">
-        <span class="meta-label">Symbolic Plate:</span>
+        <span class="meta-label">Featured Artwork:</span>
         <p class="meta-text">{item.visualDescription}</p>
       </div>
     </div>
@@ -379,23 +379,38 @@ const nextAnalysis = currentIndex < analyses.length - 1 ? analyses[currentIndex 
   }
 
   .visual-canvas {
-    background: var(--color-bg);
+    background: #f3f1ec;
     color: var(--color-text);
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid var(--color-border);
-    max-height: 380px;
+    max-height: 440px;
     overflow: hidden;
   }
 
   .analysis-article-plate-img {
     width: 100%;
     height: auto;
-    max-height: 380px;
+    max-height: 440px;
     object-fit: cover;
     display: block;
+  }
+
+  /* Vertical artwork handling (The Panchatantra) in the full article view */
+  .visual-canvas.canvas-vertical {
+    padding: 2rem 1.5rem;
+    background: radial-gradient(circle at center, #fbfaf7 0%, #ebe7df 100%);
+  }
+
+  .analysis-article-plate-img.plate-vertical {
+    width: auto;
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(28, 25, 23, 0.16);
   }
 
   .visual-meta {
