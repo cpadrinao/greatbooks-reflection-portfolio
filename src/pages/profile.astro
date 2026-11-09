@@ -2,21 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 
 const student = {
-  name: "Lorem Ipsum Dolor",
-  degree: "Bachelor of Science in Information Technology",
-  yearSection: "3rd Year - Section A",
-  subject: "Great Books (LITR 101)",
-  instructor: "Prof. Lorem Ipsum",
-  photoPlaceholder: "/images/profile-placeholder.svg",
-  bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum. Cras venenatis euismod malesuada. Nulla facilisi. Praesent vulputate quam a nibh scelerisque, nec tincidunt dolor elementum. Donec id turpis et nibh vulputate fringilla sit amet a mi.",
+  name: "Crisler Annilov B. Padrinao",
+  degree: "Bachelor of Science in Computer Science",
+  yearSection: "4th Year",
+  subject: "Great Books (NRs)",
+  instructor: "Prof. Raquel Ballares",
+  photoDefault: "/images/me-pics/before_hover.png",
+  photoHover: "/images/me-pics/after_hover.png",
+  bio: "I am a fourth-year Computer Science student who enjoys both coding and reading good stories. Most of my time in college is spent writing software and solving computer problems, but I have always loved reading because it helps me understand people better and see the world from different points of view.",
+  bioExtra: "Reading great books gives my mind a welcome break from computer screens and technical work. It reminds me that life is not just about numbers and logic, but also about feelings, friendships, real-life choices, and learning from other people's experiences.",
   readingInterests: [
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    "Integer nec odio praesent libero sed cursus ante dapibus",
-    "Sed nisi nulla quis sem at nibh elementum imperdiet",
-    "Duis sagittis ipsum praesent mauris fusce nec tellus sed"
+    "Famous myths, old legends, and classic hero stories",
+    "Stories about why people make hard choices in tough situations",
+    "Books that make you think about life and what really matters",
+    "Tales of courage, friendship, and how people overcome hard times"
   ],
-  readingExperiences: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-  expectationsAndJourney: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  readingExperiences: "I have always liked reading since I was young because books let me travel to different times and places. Before this class, I usually read just for fun and followed the main plot. Taking Great Books helped me look deeper into each story. When we read works like The Epic of Gilgamesh and The Iliad, I realized that people thousands of years ago felt the exact same sadness, anger, love, and fear that we feel today. Learning different ways to study books taught me to look closely at hidden details, ask better questions, and understand why authors wrote their stories.",
+  expectationsAndJourney: "When I first started this course, my main goal was simply to read books outside my computer major and become a better reader. Looking back, I learned much more than I expected. These old stories taught me that no matter how much technology changes, people will always need kindness, honesty, and understanding. I want to take these simple life lessons with me as I finish my degree and start my future career."
 };
 ---
 
@@ -24,15 +26,36 @@ const student = {
   title="Student Profile | My Literary Journey"
   description="Personal profile of the student and literary analyzer."
 >
-  <div class="page-header-block">
-    <div class="container">
-      <span class="section-tag">Literary Analyzer</span>
-      <h1>Student Profile</h1>
-      <p class="lead-text">
-        An introduction presenting personal background, reading interests, and academic expectations.
-      </p>
+  <div class="profile-stage-wrapper">
+    <!-- Full-Bleed Ambient Stage (Signature Book Cloth Crimson Backing) with Fast-Yet-Gentle Floating Emojis -->
+    <div class="full-bleed-pixel-stage" aria-hidden="true">
+      <div class="pixel-stage-vignette"></div>
+      
+      <!-- Floating Topic Emojis for Profile: 8 icons balanced 4 on each side -->
+      <div class="floating-emojis-stage">
+        <!-- 4 on Left Side -->
+        <span class="floating-emoji float-left-1" title="Writer">✍️</span>
+        <span class="floating-emoji float-left-2" title="Code & Logic">💻</span>
+        <span class="floating-emoji float-left-3" title="Open Book">📖</span>
+        <span class="floating-emoji float-left-4" title="Curiosity & Insight">💡</span>
+
+        <!-- 4 on Right Side -->
+        <span class="floating-emoji float-right-1" title="Notes & Analysis">📝</span>
+        <span class="floating-emoji float-right-2" title="Student Canon">🎓</span>
+        <span class="floating-emoji float-right-3" title="Editorial Reflection">🖋️</span>
+        <span class="floating-emoji float-right-4" title="Great Books Anthology">📚</span>
+      </div>
     </div>
-  </div>
+
+    <div class="page-header-block">
+      <div class="container">
+        <span class="section-tag">Literary Analyzer</span>
+        <h1>Student Profile</h1>
+        <p class="lead-text">
+          An introduction presenting personal background, reading interests, and academic expectations.
+        </p>
+      </div>
+    </div>
 
   <!-- Split Screen Layout: Left Photo Stays Pinned, Right Content Scrolls -->
   <div class="container profile-split-container">
@@ -46,16 +69,20 @@ const student = {
           <span class="card-corner corner-bl"></span>
           <span class="card-corner corner-br"></span>
 
-          <!-- Large Portrait Photo Frame -->
-          <div class="large-photo-frame">
-            <div class="photo-placeholder-canvas">
-              <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" class="portrait-icon">
-                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-              </svg>
-              <span class="photo-label">Portrait Photograph</span>
-              <span class="photo-sub">320 &times; 400px Canvas</span>
-            </div>
+          <!-- Large Portrait Photo Frame with Smooth Hover Transition -->
+          <div class="large-photo-frame" tabindex="0" title="Hover to view alternate portrait">
+            <img 
+              src={student.photoDefault} 
+              alt="Crisler Annilov B. Padrinao portrait" 
+              class="profile-photo photo-default"
+              loading="eager"
+            />
+            <img 
+              src={student.photoHover} 
+              alt="Crisler Annilov B. Padrinao portrait alternate" 
+              class="profile-photo photo-hover" 
+              loading="eager"
+            />
             
             <!-- Bookmark Ribbon Accent on the Photo -->
             <div class="photo-bookmark-tab">
@@ -99,9 +126,7 @@ const student = {
           </div>
           <div class="prose-text">
             <p>{student.bio}</p>
-            <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-            </p>
+            <p>{student.bioExtra}</p>
           </div>
         </section>
 
@@ -113,7 +138,7 @@ const student = {
           <div class="prose-text">
             <p>{student.readingExperiences}</p>
             
-            <h3 class="narrative-subheading">Areas of Literary Curiosity:</h3>
+            <h3 class="narrative-subheading">Topics I Enjoy Reading About:</h3>
             <ul class="literary-interests-list">
               {student.readingInterests.map((interest) => (
                 <li>
@@ -148,10 +173,113 @@ const student = {
       </main>
     </div>
   </div>
+  </div>
+
+  <script>
+    // Smooth touch toggle on mobile devices for the profile photo
+    document.addEventListener('DOMContentLoaded', () => {
+      const frame = document.querySelector('.large-photo-frame');
+      if (frame) {
+        frame.addEventListener('click', () => {
+          frame.classList.toggle('is-touched');
+        });
+      }
+    });
+  </script>
 </Layout>
 
 <style>
+  /* Profile Stage Wrapper: strictly isolates the stage and clips fixed elements above footer */
+  .profile-stage-wrapper {
+    position: relative;
+    clip-path: inset(0 0 0 0);
+    padding-bottom: 4rem;
+  }
+
+  /* Full-Bleed Ambient Stage (Signature Book Cloth Crimson Backing) */
+  .full-bleed-pixel-stage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-accent); /* #881337 - signature crimson red */
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .pixel-stage-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 35%, rgba(76, 5, 25, 0.5) 100%);
+  }
+
+  /* Ambient Floating Emojis Layer: subtle background presence (4 left, 4 right) */
+  .floating-emojis-stage {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .floating-emoji {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.25rem;
+    color: var(--color-bg);
+    opacity: 0.22; /* Soft ambient opacity for true background feel */
+    filter: grayscale(100%) brightness(0) invert(98%) sepia(12%) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+    user-select: none;
+    will-change: transform;
+  }
+
+  /* 4 on Left Side */
+  .float-left-1 { top: 8%; left: 3.5%; animation: floatDrift 6.5s ease-in-out infinite alternate; }
+  .float-left-2 { top: 32%; left: 4.5%; font-size: 2.45rem; animation: floatBob 5.8s ease-in-out infinite alternate; animation-delay: -1.2s; }
+  .float-left-3 { top: 58%; left: 2.5%; font-size: 2.1rem; animation: floatTilt 7s ease-in-out infinite alternate; animation-delay: -2.5s; }
+  .float-left-4 { bottom: 10%; left: 4%; font-size: 2.3rem; animation: floatDrift 6.2s ease-in-out infinite alternate; animation-delay: -1.8s; }
+
+  /* 4 on Right Side */
+  .float-right-1 { top: 12%; right: 3.5%; font-size: 2.5rem; animation: floatBob 5.5s ease-in-out infinite alternate; animation-delay: -0.8s; }
+  .float-right-2 { top: 36%; right: 5%; font-size: 2.2rem; animation: floatTilt 6.8s ease-in-out infinite alternate; animation-delay: -2s; }
+  .float-right-3 { top: 64%; right: 3%; font-size: 2.4rem; animation: floatDrift 6.4s ease-in-out infinite alternate; animation-delay: -3.2s; }
+  .float-right-4 { bottom: 12%; right: 4.5%; font-size: 2.15rem; animation: floatBob 7.2s ease-in-out infinite alternate; animation-delay: -1.5s; }
+
+  @keyframes floatBob {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-22px) rotate(4deg); }
+    100% { transform: translateY(-8px) rotate(-3deg); }
+  }
+
+  @keyframes floatDrift {
+    0% { transform: translate(0px, 0px) rotate(0deg); }
+    50% { transform: translate(16px, -18px) rotate(-5deg); }
+    100% { transform: translate(-10px, -10px) rotate(4deg); }
+  }
+
+  @keyframes floatTilt {
+    0% { transform: translateY(0px) rotate(-3deg); }
+    50% { transform: translateY(-24px) rotate(6deg); }
+    100% { transform: translateY(-12px) rotate(-2deg); }
+  }
+
+  .page-header-block {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+  }
+
   .profile-split-container {
+    position: relative;
+    z-index: 1;
+    padding-top: 2.5rem;
     padding-bottom: 5rem;
   }
 
@@ -196,53 +324,55 @@ const student = {
   .corner-bl { bottom: 6px; left: 6px; border-right: none; border-top: none; }
   .corner-br { bottom: 6px; right: 6px; border-left: none; border-top: none; }
 
-  /* Large Portrait Photo Frame */
+  /* Large Portrait Photo Frame with Smooth Photographic Cross-Fade */
   .large-photo-frame {
     position: relative;
     width: 100%;
-    height: 380px;
+    height: 460px; /* Enlarged frame to give ample portrait space */
     border-radius: 4px;
     overflow: hidden;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
+    background-color: var(--color-accent); /* #881337 - Signature crimson red of the website */
+    background: radial-gradient(circle at 50% 28%, #9f1239 0%, var(--color-accent) 65%, #4c0519 100%);
+    border: 1px solid rgba(217, 119, 6, 0.4);
     margin-bottom: 1.5rem;
+    box-shadow: 0 4px 14px rgba(28, 25, 23, 0.15);
+    cursor: pointer;
   }
 
-  .photo-placeholder-canvas {
+  .profile-photo {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-text-muted);
-    background: repeating-linear-gradient(
-      45deg,
-      #fbfaf7,
-      #fbfaf7 12px,
-      #f5f3ec 12px,
-      #f5f3ec 24px
-    );
+    object-fit: cover;
+    object-position: center top;
+    transition: opacity 0.4s ease-in-out;
   }
 
-  .portrait-icon {
-    color: var(--color-accent);
-    margin-bottom: 0.75rem;
-    opacity: 0.7;
+  .photo-default {
+    opacity: 1;
+    transform: scale(1.44) translate(2%, -13%); /* Perfectly scaled and moved up to match after-hover portrait */
+    z-index: 1;
   }
 
-  .photo-label {
-    font-family: var(--font-heading);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--color-primary);
+  .photo-hover {
+    opacity: 0;
+    transform: scale(1.38) translateY(-8%);
+    z-index: 2;
   }
 
-  .photo-sub {
-    font-size: 0.76rem;
-    color: var(--color-text-muted);
-    font-style: italic;
-    margin-top: 0.25rem;
+  .large-photo-frame:hover .photo-default,
+  .large-photo-frame:focus-within .photo-default,
+  .large-photo-frame.is-touched .photo-default {
+    opacity: 0;
+    transform: scale(1.44) translate(2%, -13%);
+  }
+
+  .large-photo-frame:hover .photo-hover,
+  .large-photo-frame:focus-within .photo-hover,
+  .large-photo-frame.is-touched .photo-hover {
+    opacity: 1;
+    transform: scale(1.38) translateY(-8%);
   }
 
   .photo-bookmark-tab {
@@ -250,15 +380,19 @@ const student = {
     top: 0;
     right: 20px;
     width: 16px;
-    height: 48px;
-    background: var(--color-accent);
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    height: 46px;
+    background: #d97706; /* Antique gold ribbon - highly visible against red background */
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 60%, #b45309 100%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+    border-left: 1px solid rgba(254, 240, 138, 0.45);
+    border-right: 1px solid rgba(180, 83, 9, 0.6);
     z-index: 5;
+    pointer-events: none;
   }
 
   .tab-tail {
     position: absolute;
-    bottom: -6px;
+    bottom: -8px;
     left: 0;
     right: 0;
     height: 8px;
@@ -448,7 +582,7 @@ const student = {
   }
 
   /* ----------------------------------------------------
-     Responsive Breakpoint: Unpin gracefully on small screens
+     Responsive Breakpoints: Unpin gracefully on small screens
      ---------------------------------------------------- */
   @media (max-width: 940px) {
     .profile-split-grid {
@@ -461,7 +595,37 @@ const student = {
     }
 
     .large-photo-frame {
-      height: 320px;
+      height: 420px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .floating-emoji {
+      font-size: 1.5rem;
+      opacity: 0.16;
+    }
+    .float-left-1 { top: 6%; left: 1.5%; }
+    .float-left-2 { top: 28%; left: 2%; font-size: 1.6rem; }
+    .float-left-3 { top: 54%; left: 1.5%; }
+    .float-left-4 { bottom: 8%; left: 2%; }
+
+    .float-right-1 { top: 10%; right: 1.5%; font-size: 1.6rem; }
+    .float-right-2 { top: 34%; right: 2%; }
+    .float-right-3 { top: 60%; right: 1.5%; font-size: 1.6rem; }
+    .float-right-4 { bottom: 10%; right: 2%; }
+  }
+
+  @media (max-width: 600px) {
+    .large-photo-frame {
+      height: 350px;
+    }
+    .next-step-bar {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+    .prose-text {
+      font-size: 1rem;
     }
   }
 </style>

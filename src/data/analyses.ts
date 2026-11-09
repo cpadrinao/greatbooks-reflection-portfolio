@@ -33,9 +33,9 @@ export const analyses: LiteraryAnalysis[] = [
     number: 1,
     title: "Voice out of the Whirlwind",
     author: "Ancient Hebrew Wisdom Tradition (Book of Job)",
-    period: "Ancient Near East (c. 6th–4th Century BCE)",
+    period: "Ancient Near East (c. 6th to 4th Century BCE)",
     lens: "Ecocritical Lens",
-    lensDefinition: "Examining how untamed nature—wild storms, stars, mountain creatures, and roaring oceans—shows that the universe has immense value and mystery far beyond human comfort or control.",
+    lensDefinition: "Examining how untamed nature, including wild storms, stars, mountain creatures, and roaring oceans, shows that the universe has immense value and mystery far beyond human comfort or control.",
     visualDescription: "A cosmic tempest and spiraling whirlwind illuminating the night sky, symbolizing the voice of the divine answering Job.",
     imagePlaceholder: "/images/analyses/voice-whirlwind.svg",
     pixelBg: "/images/pixel-bg/pixel-whirlwind.svg",
@@ -61,7 +61,7 @@ export const analyses: LiteraryAnalysis[] = [
     ],
     fullAnalysis: {
       introduction: "In this unforgettable section of the Book of Job, a good and honest man named Job loses everything he cares about for reasons he cannot comprehend. His well-meaning friends insist that the world always rewards good and punishes evil, telling Job he must be hiding some terrible sin. Job refuses to agree to cheap answers because he knows he was faithful. When God finally responds directly out of a roaring whirlwind, the story shifts away from human debates and opens up a breathtaking view of creation.",
-      lensApplication: "Through an ecocritical lens, the story turns the usual human-centered worldview completely upside down. Humans often think the earth was built only to serve our convenience. But the Voice asks Job about places where no human ever walks—about the rain falling in deserted wilderness, about the wild mountain goats giving birth in secret crags, and about the untamable Leviathan playing in the deep sea. Nature has its own sacred worth and beauty, and realizing this frees humans from the arrogant belief that everything in the cosmos revolves around us.",
+      lensApplication: "Through an ecocritical lens, the story turns the usual human-centered worldview completely upside down. Humans often think the earth was built only to serve our convenience. But the Voice asks Job about places where no human ever walks, such as the rain falling in deserted wilderness, the wild mountain goats giving birth in secret crags, and the untamable Leviathan playing in the deep sea. Nature has its own sacred worth and beauty, and realizing this frees humans from the arrogant belief that everything in the cosmos revolves around us.",
       textualEvidence: "Chapters 38 through 41 are filled with vivid nature poetry. The Voice asks Job where he was when the foundations of the earth were laid, who tells the violent ocean waves where to halt, and who provides food for the ravens and wild mountain goats. These questions are not meant to crush Job, but to release him from his anxiety by reminding him that the same caring power that sustains the stars and wild beasts is also present through his darkest days.",
       conclusion: loremConclusion
     }
@@ -71,13 +71,13 @@ export const analyses: LiteraryAnalysis[] = [
     number: 2,
     title: "The Panchatantra",
     author: "Attributed to Pandit Vishnu Sharma",
-    period: "Classical India (c. 300 BCE – 300 CE)",
+    period: "Classical India (c. 300 BCE to 300 CE)",
     lens: "Structuralist Lens",
     lensDefinition: "Looking at how the nested 'frame-story' structure (stories woven inside other stories) and universal animal archetypes teach practical everyday wisdom and social survival.",
-    visualDescription: "An ancient banyan tree sheltering a gathering of forest creatures—a wise crow, a lion, and a clever jackal—beside the scroll of practical wisdom.",
+    visualDescription: "An ancient banyan tree sheltering a gathering of forest creatures, including a wise crow, a lion, and a clever jackal, beside the scroll of practical wisdom.",
     imagePlaceholder: "/images/analyses/panchatantra.svg",
     pixelBg: "/images/pixel-bg/pixel-panchatantra.svg",
-    excerpt: "Composed to educate three unruly young princes, these interwoven animal fables teach 'Niti'—how to choose loyal friends, avoid deception, and navigate real-world challenges.",
+    excerpt: "Composed to educate three unruly young princes, these interwoven animal fables teach 'Niti', focusing on how to choose loyal friends, avoid deception, and navigate real-world challenges.",
     keyThemes: ["True and False Friends", "Brains over Pure Brawn", "Street Smarts and Leadership"],
     characters: [
       {
@@ -99,7 +99,7 @@ export const analyses: LiteraryAnalysis[] = [
     ],
     fullAnalysis: {
       introduction: "The Panchatantra is one of the most widely traveled story collections in human history. According to tradition, an elderly scholar named Vishnu Sharma was asked to teach three young, rebellious princes who refused to read dry academic textbooks. Rather than lecturing them with rules, he told them gripping, funny stories about forest animals facing real conflicts. The princes learned faster through storytelling than they ever did through memorization.",
-      lensApplication: "Using a structuralist lens, we see how the architecture of the book is carefully designed. Stories are nested inside each other like Russian matryoshka dolls—a character in one tale begins telling another story to prove a point. This interconnected pattern mirrors how human relationships work: every situation has a back-story, and one choice triggers a chain reaction across the entire community. The universal animal archetypes (the proud lion, the wily jackal, the patient turtle) allow readers of any culture to easily recognize human personality types.",
+      lensApplication: "Using a structuralist lens, we see how the architecture of the book is carefully designed. Stories are nested inside each other like Russian matryoshka dolls, where a character in one tale begins telling another story to prove a point. This interconnected pattern mirrors how human relationships work: every situation has a back-story, and one choice triggers a chain reaction across the entire community. The universal animal archetypes (the proud lion, the wily jackal, the patient turtle) allow readers of any culture to easily recognize human personality types.",
       textualEvidence: "In the famous opening book, 'The Loss of Friends,' a deep bond develops between a noble lion named Pingalaka and an honest grass-eating bull named Sanjivaka. Their partnership brings peace to the entire forest. However, two hungry jackals named Karataka and Damanaka become jealous of their bond and start whispering deceitful rumors into both ears until the friends tragically fight. It serves as a timeless reminder of how toxic gossip can destroy genuine trust.",
       conclusion: loremConclusion
     }
@@ -109,9 +109,9 @@ export const analyses: LiteraryAnalysis[] = [
     number: 3,
     title: "The Ramayana",
     author: "Attributed to Sage Valmiki",
-    period: "Ancient Indian Epic (c. 5th–4th Century BCE)",
+    period: "Ancient Indian Epic (c. 5th to 4th Century BCE)",
     lens: "Archetypal / Mythological Lens",
-    lensDefinition: "Analyzing universal mythic patterns—the exiled prince, the faithful companion, the hero's quest, and the eternal triumph of cosmic order (Dharma) over destructive chaos.",
+    lensDefinition: "Analyzing universal mythic patterns, such as the exiled prince, the faithful companion, the hero's quest, and the eternal triumph of cosmic order (Dharma) over destructive chaos.",
     visualDescription: "Prince Rama’s divine bow Kodanda, the golden arrow of truth, the enchanted golden deer, and a sacred blooming lotus of devotion.",
     imagePlaceholder: "/images/analyses/ramayana.svg",
     pixelBg: "/images/pixel-bg/pixel-ramayana.svg",
@@ -141,8 +141,8 @@ export const analyses: LiteraryAnalysis[] = [
     ],
     fullAnalysis: {
       introduction: "The Ramayana is a cherished epic that has shaped ethical ideals and family values across Asia for millennia. It follows Prince Rama of Ayodhya, a kind and respected leader who is on the verge of being crowned king. Just before his coronation, his father is forced by an old promise to send Rama into fourteen years of harsh forest exile. Accompanied by his loyal wife Sita and younger brother Lakshmana, their peaceful exile turns into a heroic struggle when the ten-headed demon king Ravana abducts Sita to his island fortress of Lanka.",
-      lensApplication: "Through an archetypal lens, the Ramayana is a foundational story of the Hero's Journey. Rama represents the archetype of the Ideal Human—not because he has magic powers, but because he masters his emotions and puts duty above selfish desires. Sita represents the archetype of unbreakable inner purity and resilience. Ravana represents the archetype of destructive ego and inflated intellect without moral anchor. The conflict between them is the universal human struggle between moral balance (Dharma) and selfish chaos (Adharma).",
-      textualEvidence: "When Lakshmana furiously suggests overthrowing their father to claim the throne, Rama gently calms him down, explaining that anger cannot build a peaceful life. Later in the story, the selflessness of characters like Hanuman—who crosses the vast ocean to find Sita without asking for any reward—proves that pure loyalty and quiet courage can accomplish things that armies cannot.",
+      lensApplication: "Through an archetypal lens, the Ramayana is a foundational story of the Hero's Journey. Rama represents the archetype of the Ideal Human, not because he has magic powers, but because he masters his emotions and puts duty above selfish desires. Sita represents the archetype of unbreakable inner purity and resilience. Ravana represents the archetype of destructive ego and inflated intellect without moral anchor. The conflict between them is the universal human struggle between moral balance (Dharma) and selfish chaos (Adharma).",
+      textualEvidence: "When Lakshmana furiously suggests overthrowing their father to claim the throne, Rama gently calms him down, explaining that anger cannot build a peaceful life. Later in the story, the selflessness of characters like Hanuman, who crosses the vast ocean to find Sita without asking for any reward, proves that pure loyalty and quiet courage can accomplish things that armies cannot.",
       conclusion: loremConclusion
     }
   },
@@ -151,7 +151,7 @@ export const analyses: LiteraryAnalysis[] = [
     number: 4,
     title: "The Mahabharata",
     author: "Attributed to Sage Vyasa",
-    period: "Ancient Indian Epic (c. 4th Century BCE – 4th Century CE)",
+    period: "Ancient Indian Epic (c. 4th Century BCE to 4th Century CE)",
     lens: "Marxist / Socioeconomic Lens",
     lensDefinition: "Examining how dynastic wealth, land ownership, royal privilege, and class systems drive a devastating war where ordinary people pay the price for elite greed.",
     visualDescription: "The great battlefield chariot wheel of Kurukshetra, the war banner of Arjuna, and Krishna’s sacred conch shell sounding for truth.",
@@ -184,7 +184,7 @@ export const analyses: LiteraryAnalysis[] = [
     fullAnalysis: {
       introduction: "The Mahabharata is one of the longest and most psychologically realistic epics ever composed. It does not present heroes as flawless gods or villains as cartoonish monsters; instead, it portrays human beings caught in complicated rivalries. Two sets of cousins, the Pandavas and Kauravas, grow up together with growing tension. After years of jealousy, cheating at dice, and humiliation, the struggle explodes into an all-consuming war on the plains of Kurukshetra.",
       lensApplication: "Through a socioeconomic lens, the war of Kurukshetra is fundamentally a clash over empire, tribute, and concentrated wealth. The royal Kauravas refuse to grant the Pandavas even five small villages, preferring total war over sharing imperial land. Behind the speeches of chivalry and heroic bloodlines, the epic honestly reveals the horrific human cost: millions of foot soldiers, horsemen, and commoners are slaughtered in eighteen days simply to decide which group of royal cousins sits on the golden throne.",
-      textualEvidence: "The tragic character of Karna provides sharp socioeconomic insight. Although gifted with legendary archery skills, he is constantly insulted and denied equal respect by royal princes because he was raised by a chariot driver. His story highlights how rigid class hierarchies can poison a society and push talented people into bitter rivalries. Furthermore, the sorrowful aftermath of the war—where women weep over empty fields and a ruined kingdom—demonstrates that imperial conquest leaves everyone impoverished.",
+      textualEvidence: "The tragic character of Karna provides sharp socioeconomic insight. Although gifted with legendary archery skills, he is constantly insulted and denied equal respect by royal princes because he was raised by a chariot driver. His story highlights how rigid class hierarchies can poison a society and push talented people into bitter rivalries. Furthermore, the sorrowful aftermath of the war, where women weep over empty fields and a ruined kingdom, demonstrates that imperial conquest leaves everyone impoverished.",
       conclusion: loremConclusion
     }
   },
@@ -195,7 +195,7 @@ export const analyses: LiteraryAnalysis[] = [
     author: "Homer",
     period: "Ancient Greece (c. 8th Century BCE)",
     lens: "Psychoanalytic Lens",
-    lensDefinition: "Exploring Odysseus's inner psychological journey—unconscious desires, overcoming paralyzing temptations, confronting trauma, and reclaiming his mature identity as a leader and father.",
+    lensDefinition: "Exploring Odysseus's inner psychological journey, focusing on unconscious desires, overcoming paralyzing temptations, confronting trauma, and reclaiming his mature identity as a leader and father.",
     visualDescription: "Odysseus’s wooden Greek galley braving the waves of the Aegean Sea under guiding constellations, with the olive branch of Ithaca.",
     imagePlaceholder: "/images/analyses/odyssey.svg",
     pixelBg: "/images/pixel-bg/pixel-odyssey.svg",
@@ -241,7 +241,7 @@ export const analyses: LiteraryAnalysis[] = [
     author: "Anonymous (French Chanson de Geste)",
     period: "Medieval Europe (c. 11th Century CE)",
     lens: "Historical / Contextual Lens",
-    lensDefinition: "Analyzing the work within its 11th-century medieval feudal environment—the Crusades, sworn feudal vassalage, and the chivalric warrior code that valued honor over self-preservation.",
+    lensDefinition: "Analyzing the work within its 11th-century medieval feudal environment, including the Crusades, sworn feudal vassalage, and the chivalric warrior code that valued honor over self-preservation.",
     visualDescription: "The holy sword Durendal planted on the rocky heights of Roncevaux Pass beside the ivory hunting horn Olifant and the Pyrenees mountains.",
     imagePlaceholder: "/images/analyses/song-of-roland.svg",
     pixelBg: "/images/pixel-bg/pixel-roland.svg",
@@ -283,7 +283,7 @@ export const analyses: LiteraryAnalysis[] = [
     author: "Murasaki Shikibu (Noblewoman of the Imperial Court)",
     period: "Classical Japan Heian Period (Early 11th Century CE)",
     lens: "Feminist Lens",
-    lensDefinition: "Examining Heian court society through Murasaki Shikibu’s female eyes—revealing the emotional isolation, lack of marital freedom, and private resilience of women living behind silk screens.",
+    lensDefinition: "Examining Heian court society through Murasaki Shikibu’s female eyes, revealing the emotional isolation, lack of marital freedom, and private resilience of women living behind silk screens.",
     visualDescription: "A four-panel Heian screen, cherry blossom petals drifting past a painted court fan, under the golden autumn moon of Kyoto.",
     imagePlaceholder: "/images/analyses/tale-of-genji.svg",
     pixelBg: "/images/pixel-bg/pixel-genji.svg",

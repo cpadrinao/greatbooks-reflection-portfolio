@@ -38,12 +38,12 @@ const carouselSequence = [...sections, ...sections, ...sections];
 
 const coverThemes = [
   { bg: "#182635", border: "#d97706", accentColor: "#fbbf24", textLight: "#f1f5f9" },
-  { bg: "#7a1128", border: "#d97706", accentColor: "#fde68a", textLight: "#fff1f2" },
+  { bg: "#0f393b", border: "#d97706", accentColor: "#a7f3d0", textLight: "#ecfdf5" },
   { bg: "#163824", border: "#d97706", accentColor: "#fde68a", textLight: "#f0fdf4" },
   { bg: "#451a03", border: "#d97706", accentColor: "#fde68a", textLight: "#fef3c7" },
   { bg: "#3b1747", border: "#d97706", accentColor: "#f5d0fe", textLight: "#faf5ff" },
   { bg: "#1f2937", border: "#d97706", accentColor: "#fde68a", textLight: "#f9fafb" },
-  { bg: "#581c1c", border: "#d97706", accentColor: "#fed7aa", textLight: "#fff7ed" }
+  { bg: "#2a1b40", border: "#d97706", accentColor: "#e9d5ff", textLight: "#faf5ff" }
 ];
 ---
 
@@ -156,7 +156,7 @@ const coverThemes = [
                   <h2 class="cover-title">GREAT<br/>BOOKS</h2>
                   <div class="cover-divider"></div>
                   <span class="cover-subtitle">A Digital Portfolio</span>
-                  <span class="cover-edition">LITERARY ARCHIVE</span>
+                  <span class="cover-edition">By: Crisler Padrinao</span>
                 </div>
               </div>
 
@@ -354,13 +354,13 @@ const coverThemes = [
 
 <style>
   /* ----------------------------------------------------
-     Hero Section: Clean Ivory White (#ffffff)
+     Hero Section: Signature Book Cloth Crimson (#881337)
      ---------------------------------------------------- */
   .hero-section {
     position: relative;
     padding: 5rem 0 4.5rem;
-    background: #ffffff;
-    border-bottom: 1px solid var(--color-border);
+    background: var(--color-accent); /* #881337 - Signature crimson red */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     overflow: hidden;
   }
 
@@ -374,25 +374,25 @@ const coverThemes = [
 
   .floating-element {
     position: absolute;
-    color: var(--color-warm-brown);
-    opacity: 0.18;
-    filter: drop-shadow(0 2px 4px rgba(41, 37, 36, 0.05));
+    color: #ffffff;
+    opacity: 0.15;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
   }
 
   .float-book-1 { top: 10%; left: 4%; animation: floatDrift 14s ease-in-out infinite alternate; }
   .float-book-2 { bottom: 12%; left: 44%; animation: floatBob 11s ease-in-out infinite alternate; }
   .float-book-3 { top: 14%; right: 48%; animation: floatTilt 16s ease-in-out infinite alternate; }
   .float-page-1 { top: 60%; left: 6%; animation: floatDrift 13s ease-in-out infinite alternate-reverse; }
-  .float-ribbon { bottom: 20%; right: 6%; color: var(--color-accent); opacity: 0.22; animation: floatBob 10s ease-in-out infinite alternate; }
+  .float-ribbon { bottom: 20%; right: 6%; color: #fde68a; opacity: 0.25; animation: floatBob 10s ease-in-out infinite alternate; }
 
   .floating-chip {
     position: absolute;
     font-size: 0.8rem;
     font-family: var(--font-body);
     font-style: italic;
-    color: var(--color-text-muted);
-    background: rgba(251, 250, 247, 0.95);
-    border: 1px solid var(--color-border);
+    color: #fde68a;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(251, 191, 36, 0.35);
     padding: 0.35rem 0.85rem;
     border-radius: 9999px;
   }
@@ -436,18 +436,18 @@ const coverThemes = [
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.14em;
-    color: var(--color-accent);
+    color: #fde68a;
     margin-bottom: 0.85rem;
   }
 
-  .ornament-leaf { color: var(--color-warm-brown); font-size: 0.95rem; }
+  .ornament-leaf { color: #fde68a; font-size: 0.95rem; }
 
   .hero-heading {
     font-family: var(--font-heading);
     font-size: 3.35rem;
     font-weight: 700;
     line-height: 1.15;
-    color: var(--color-primary);
+    color: #ffffff;
     margin: 0 0 1.25rem;
     letter-spacing: -0.01em;
   }
@@ -456,7 +456,8 @@ const coverThemes = [
     font-family: var(--font-body);
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--color-text-muted);
+    color: var(--color-bg);
+    opacity: 0.95;
     margin: 0 0 2rem;
   }
 
@@ -484,8 +485,30 @@ const coverThemes = [
   .btn-outline { background: #ffffff; color: var(--color-primary); border: 1px solid var(--color-border-dark); }
   .btn-outline:hover { background: var(--color-bg-alt); }
 
+  .hero-cta-row .btn-primary {
+    background: #ffffff;
+    color: var(--color-accent);
+    font-weight: 600;
+    border: 1px solid #ffffff;
+  }
+  .hero-cta-row .btn-primary:hover {
+    background: var(--color-bg-alt);
+    color: #4c0519;
+    transform: translateY(-1px);
+  }
+
+  .hero-cta-row .btn-outline {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+  }
+  .hero-cta-row .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+  }
+
   /* ----------------------------------------------------
-     Solid 3D Hardcover Book Showcase (Floating + Hover Tilt)
+     Solid 3D Hardcover Book Showcase (Obsidian Leather Contrast)
      ---------------------------------------------------- */
   .hero-book-showcase {
     display: flex;
@@ -510,11 +533,11 @@ const coverThemes = [
     position: relative;
     width: 240px;
     height: 330px;
-    background: #881337;
+    background: #1c1917; /* Deep obsidian leather contrast on crimson background */
     border-radius: 3px 8px 8px 3px;
     box-shadow: 
-      -4px 4px 10px rgba(0, 0, 0, 0.15),
-      12px 18px 30px rgba(28, 25, 23, 0.18);
+      -4px 4px 10px rgba(0, 0, 0, 0.25),
+      12px 18px 30px rgba(0, 0, 0, 0.35);
     transform: rotateY(-16deg) rotateX(7deg);
     transform-style: preserve-3d;
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
@@ -523,8 +546,8 @@ const coverThemes = [
   .book-3d-wrapper:hover .book-3d {
     transform: rotateY(-6deg) rotateX(2deg) translateY(-4px) scale(1.02);
     box-shadow: 
-      -6px 6px 14px rgba(0, 0, 0, 0.18),
-      18px 26px 40px rgba(28, 25, 23, 0.22);
+      -6px 6px 14px rgba(0, 0, 0, 0.3),
+      18px 26px 40px rgba(0, 0, 0, 0.4);
   }
 
   /* Spine */
@@ -534,8 +557,8 @@ const coverThemes = [
     bottom: 0;
     left: 0;
     width: 22px;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.35) 0%, rgba(255, 255, 255, 0.1) 40%, rgba(0, 0, 0, 0.2) 100%);
-    border-right: 1px solid rgba(0, 0, 0, 0.25);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.15) 40%, rgba(0, 0, 0, 0.3) 100%);
+    border-right: 1px solid rgba(0, 0, 0, 0.35);
     border-radius: 3px 0 0 3px;
     display: flex;
     flex-direction: column;
@@ -558,7 +581,7 @@ const coverThemes = [
     flex-direction: column;
     justify-content: center;
     border-radius: 3px 8px 8px 3px;
-    background: #881337;
+    background: #1c1917; /* Deep obsidian leather */
   }
 
   .corner-bracket {
@@ -656,13 +679,13 @@ const coverThemes = [
   }
 
   /* ----------------------------------------------------
-     Section 1: Exploration Chapters (Clean Soft Blush #fbf5f5)
+     Section 1: Exploration Chapters (Dirty White #fbfaf7)
      Card-Embedded Bookbinder & Draped Ribbon Design
      ---------------------------------------------------- */
   .sections-overview {
-    background: #fbf5f5;
-    border-top: 1px solid #f2e6e6;
-    border-bottom: 1px solid #f2e6e6;
+    background: var(--color-bg); /* #fbfaf7 - dirty white */
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
     padding: 5rem 0 4.5rem;
     overflow: hidden;
   }
@@ -869,11 +892,12 @@ const coverThemes = [
   }
 
   /* ----------------------------------------------------
-     Section 2: Selected Masterpieces (Clean White #ffffff)
+     Section 2: Selected Masterpieces (Signature Book Cloth Crimson #881337)
      Features 7 Randomly Rotating Bookbinder Covers
      ---------------------------------------------------- */
   .analyses-strip {
-    background: #ffffff;
+    background: var(--color-accent); /* #881337 - Signature crimson red */
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
     padding: 5rem 0;
   }
 
@@ -886,16 +910,22 @@ const coverThemes = [
     gap: 1rem;
   }
 
+  .strip-header .overview-tag {
+    color: #fde68a;
+  }
+
   .strip-header h2 {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 700;
+    color: #ffffff;
     margin: 0 0 0.35rem;
   }
 
   .strip-subtitle {
     font-family: var(--font-body);
-    color: var(--color-text-muted);
+    color: var(--color-bg);
+    opacity: 0.95;
     margin: 0;
     font-size: 0.95rem;
     font-style: italic;
@@ -904,11 +934,13 @@ const coverThemes = [
   .view-link {
     font-size: 0.92rem;
     font-weight: 600;
-    color: var(--color-accent);
+    color: #fde68a;
     text-decoration: none;
+    transition: color 0.15s ease;
   }
 
   .view-link:hover {
+    color: #ffffff;
     text-decoration: underline;
   }
 
@@ -932,8 +964,8 @@ const coverThemes = [
     background: var(--cover-bg);
     border-radius: 4px 10px 10px 4px;
     box-shadow: 
-      -3px 3px 8px rgba(0, 0, 0, 0.12),
-      8px 14px 22px rgba(28, 25, 23, 0.14);
+      -3px 3px 10px rgba(0, 0, 0, 0.25),
+      8px 14px 24px rgba(0, 0, 0, 0.35);
     display: flex;
     transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
     transform: rotateY(-4deg);
@@ -943,8 +975,8 @@ const coverThemes = [
   .book-physical-wrapper:hover .book-physical {
     transform: rotateY(-1deg) translateY(-8px) scale(1.02);
     box-shadow: 
-      -5px 6px 12px rgba(0, 0, 0, 0.15),
-      12px 20px 30px rgba(28, 25, 23, 0.2);
+      -5px 6px 14px rgba(0, 0, 0, 0.35),
+      12px 22px 34px rgba(0, 0, 0, 0.45);
   }
 
   .binder-corner {
