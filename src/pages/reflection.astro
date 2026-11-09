@@ -88,19 +88,22 @@ const reflectionQuestions = [
     <div class="full-bleed-pixel-stage" aria-hidden="true">
       <div class="pixel-stage-vignette"></div>
       
-      <!-- Floating Emojis relating to Reflection and Summary: 8 icons balanced 4 on each side -->
+      <!-- Floating Emojis relating to Reflection and Summary: 11 icons balanced across the margins -->
       <div class="floating-emojis-stage">
-        <!-- 4 on Left Side -->
+        <!-- 5 on Left Side -->
         <span class="floating-emoji float-left-1" title="Deep Contemplation">💭</span>
         <span class="floating-emoji float-left-2" title="Clarity & Illumination">🌟</span>
         <span class="floating-emoji float-left-3" title="Moral Compass">🧭</span>
         <span class="floating-emoji float-left-4" title="Intellectual Synthesis">🧠</span>
+        <span class="floating-emoji float-left-5" title="Insight & Revelation">💡</span>
 
-        <!-- 4 on Right Side -->
+        <!-- 6 on Right Side -->
         <span class="floating-emoji float-right-1" title="Reflective Journaling">🖋️</span>
         <span class="floating-emoji float-right-2" title="Empathy & Compassion">🕊️</span>
         <span class="floating-emoji float-right-3" title="Enduring Wisdom">📖</span>
         <span class="floating-emoji float-right-4" title="Ethics & Human Nature">⚖️</span>
+        <span class="floating-emoji float-right-5" title="Contemplative Study">🕯️</span>
+        <span class="floating-emoji float-right-6" title="Canonical Heritage">📜</span>
       </div>
     </div>
 
@@ -273,17 +276,20 @@ const reflectionQuestions = [
     will-change: transform;
   }
 
-  /* 4 on Left Side */
-  .float-left-1 { top: 8%; left: 3.5%; animation: floatDrift 6.5s ease-in-out infinite alternate; }
-  .float-left-2 { top: 32%; left: 4.5%; font-size: 2.45rem; animation: floatBob 5.8s ease-in-out infinite alternate; animation-delay: -1.2s; }
-  .float-left-3 { top: 58%; left: 2.5%; font-size: 2.1rem; animation: floatTilt 7s ease-in-out infinite alternate; animation-delay: -2.5s; }
-  .float-left-4 { bottom: 10%; left: 4%; font-size: 2.3rem; animation: floatDrift 6.2s ease-in-out infinite alternate; animation-delay: -1.8s; }
+  /* 5 on Left Side */
+  .float-left-1 { top: 6%; left: 3.5%; animation: floatDrift 6.5s ease-in-out infinite alternate; }
+  .float-left-2 { top: 26%; left: 4.5%; font-size: 2.45rem; animation: floatBob 5.8s ease-in-out infinite alternate; animation-delay: -1.2s; }
+  .float-left-3 { top: 48%; left: 2.5%; font-size: 2.1rem; animation: floatTilt 7s ease-in-out infinite alternate; animation-delay: -2.5s; }
+  .float-left-4 { top: 70%; left: 4.5%; font-size: 2.35rem; animation: floatDrift 6.2s ease-in-out infinite alternate; animation-delay: -1.8s; }
+  .float-left-5 { bottom: 8%; left: 3%; font-size: 2.2rem; animation: floatBob 6.8s ease-in-out infinite alternate; animation-delay: -3s; }
 
-  /* 4 on Right Side */
-  .float-right-1 { top: 12%; right: 3.5%; font-size: 2.5rem; animation: floatBob 5.5s ease-in-out infinite alternate; animation-delay: -0.8s; }
-  .float-right-2 { top: 36%; right: 5%; font-size: 2.2rem; animation: floatTilt 6.8s ease-in-out infinite alternate; animation-delay: -2s; }
-  .float-right-3 { top: 64%; right: 3%; font-size: 2.4rem; animation: floatDrift 6.4s ease-in-out infinite alternate; animation-delay: -3.2s; }
-  .float-right-4 { bottom: 12%; right: 4.5%; font-size: 2.15rem; animation: floatBob 7.2s ease-in-out infinite alternate; animation-delay: -1.5s; }
+  /* 6 on Right Side */
+  .float-right-1 { top: 8%; right: 3.5%; font-size: 2.5rem; animation: floatBob 5.5s ease-in-out infinite alternate; animation-delay: -0.8s; }
+  .float-right-2 { top: 25%; right: 5%; font-size: 2.2rem; animation: floatTilt 6.8s ease-in-out infinite alternate; animation-delay: -2s; }
+  .float-right-3 { top: 42%; right: 3%; font-size: 2.4rem; animation: floatDrift 6.4s ease-in-out infinite alternate; animation-delay: -3.2s; }
+  .float-right-4 { top: 60%; right: 4.5%; font-size: 2.15rem; animation: floatBob 7.2s ease-in-out infinite alternate; animation-delay: -1.5s; }
+  .float-right-5 { top: 78%; right: 3%; font-size: 2.3rem; animation: floatTilt 6s ease-in-out infinite alternate; animation-delay: -2.8s; }
+  .float-right-6 { bottom: 7%; right: 4.5%; font-size: 2.25rem; animation: floatDrift 6.6s ease-in-out infinite alternate; animation-delay: -0.5s; }
 
   @keyframes floatBob {
     0% { transform: translateY(0px) rotate(0deg); }
@@ -328,7 +334,6 @@ const reflectionQuestions = [
     gap: 1.25rem;
     background: #ffffff;
     border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-accent);
     border-radius: 8px;
     padding: 1.5rem 1.75rem;
     margin-bottom: 2rem;
@@ -469,8 +474,7 @@ const reflectionQuestions = [
   .synthesis-quote-box {
     background: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-left: 3px solid var(--color-accent);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 1.15rem 1.35rem;
   }
 
@@ -518,7 +522,6 @@ const reflectionQuestions = [
   .reflection-quote-card {
     background: #ffffff;
     border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-accent);
     border-radius: 8px;
     padding: 2rem 2.25rem;
     margin-bottom: 2rem;
@@ -644,15 +647,18 @@ const reflectionQuestions = [
       font-size: 1.5rem;
       opacity: 0.16;
     }
-    .float-left-1 { top: 6%; left: 1.5%; }
-    .float-left-2 { top: 28%; left: 2%; font-size: 1.6rem; }
-    .float-left-3 { top: 54%; left: 1.5%; }
-    .float-left-4 { bottom: 8%; left: 2%; }
+    .float-left-1 { top: 5%; left: 1.5%; }
+    .float-left-2 { top: 24%; left: 2%; font-size: 1.6rem; }
+    .float-left-3 { top: 45%; left: 1.5%; }
+    .float-left-4 { top: 66%; left: 2%; }
+    .float-left-5 { bottom: 6%; left: 1.5%; font-size: 1.55rem; }
 
-    .float-right-1 { top: 10%; right: 1.5%; font-size: 1.6rem; }
-    .float-right-2 { top: 34%; right: 2%; }
-    .float-right-3 { top: 60%; right: 1.5%; font-size: 1.6rem; }
-    .float-right-4 { bottom: 10%; right: 2%; }
+    .float-right-1 { top: 8%; right: 1.5%; font-size: 1.6rem; }
+    .float-right-2 { top: 25%; right: 2%; }
+    .float-right-3 { top: 43%; right: 1.5%; font-size: 1.6rem; }
+    .float-right-4 { top: 61%; right: 2%; }
+    .float-right-5 { top: 78%; right: 1.5%; font-size: 1.55rem; }
+    .float-right-6 { bottom: 8%; right: 2%; }
   }
 
   @media (max-width: 680px) {

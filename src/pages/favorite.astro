@@ -47,7 +47,12 @@ const favorite = {
     ],
     lessons: "Homer strips away any artificial glamour from battlefield combat. The Iliad shows that war brings universal heartbreak to both sides of the trench, and that genuine greatness lies not in ruthless slaughter, but in recognizing our shared mortality and showing compassion to our enemies."
   },
-  personalConnections: "This book reveals how unchecked pride, anger, and ego can bring down talented groups. When leaders fixate on personal rivalries, the entire community ends up paying the price. In my own academic and project experiences, I have seen how quickly misunderstandings or stubborn pride can derail an otherwise capable team. Reading The Iliad taught me that putting personal ego aside, listening with empathy, and working toward shared goals are what truly hold communities together."
+  personalConnections: "This book reveals how unchecked pride, anger, and ego can bring down talented groups. When leaders fixate on personal rivalries, the entire community ends up paying the price. In my own academic and project experiences, I have seen how quickly misunderstandings or stubborn pride can derail an otherwise capable team. Reading The Iliad taught me that putting personal ego aside, listening with empathy, and working toward shared goals are what truly hold communities together.",
+  videoSummary: {
+    youtubeUrl: "https://youtu.be/X3_q5A18qfc",
+    youtubeId: "X3_q5A18qfc",
+    creator: "Unknown Frequencies"
+  }
 };
 ---
 
@@ -160,6 +165,40 @@ const favorite = {
         <p>{favorite.personalConnections}</p>
       </div>
     </section>
+
+    <!-- Section 5: Summary of the Video -->
+    {favorite.videoSummary && (
+      <section class="editorial-section video-summary-section">
+        <div class="video-header">
+          <h3 class="section-title">Summary of the Video</h3>
+          <p class="video-desc">
+            Explore a visual narrative and comprehensive summary of <strong>{favorite.title}</strong> through this educational video recap.
+          </p>
+        </div>
+
+        <div class="video-player-container">
+          <iframe 
+            src={`https://www.youtube-nocookie.com/embed/${favorite.videoSummary.youtubeId}`}
+            title={`Summary of ${favorite.title} in video`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+            class="video-iframe"
+          ></iframe>
+        </div>
+
+        <div class="video-credits-bar">
+          <div class="credits-meta">
+            <span class="credits-label">Credits to:</span>
+            <span class="credits-creator">{favorite.videoSummary.creator}</span>
+          </div>
+          <a href={favorite.videoSummary.youtubeUrl} target="_blank" rel="noopener noreferrer" class="youtube-direct-btn">
+            <span>Watch on YouTube</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </section>
+    )}
 
     <!-- Next Section Navigation -->
     <div class="next-step-bar">
@@ -352,9 +391,9 @@ const favorite = {
 
   .spotlight-quote-box {
     background: var(--color-bg);
-    border-left: 3px solid var(--color-accent);
+    border: 1px solid var(--color-border);
     padding: 1.25rem 1.5rem;
-    border-radius: 0 4px 4px 0;
+    border-radius: 6px;
   }
 
   .spotlight-quote-box blockquote {
@@ -476,6 +515,91 @@ const favorite = {
     line-height: 1.7;
     margin: 0;
     font-style: italic;
+  }
+
+  /* Video Summary Section */
+  .video-summary-section {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .video-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .video-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0.5rem 0 0;
+  }
+
+  .video-player-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #110e0c;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 16px rgba(28, 25, 23, 0.12);
+    margin-bottom: 1.25rem;
+  }
+
+  .video-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-credits-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.85rem 1.15rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.88rem;
+  }
+
+  .credits-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .credits-label {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .credits-creator {
+    color: var(--color-warm-brown);
+    font-weight: 600;
+  }
+
+  .youtube-direct-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.84rem;
+    transition: color 0.15s ease;
+  }
+
+  .youtube-direct-btn:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 
   .next-step-bar {

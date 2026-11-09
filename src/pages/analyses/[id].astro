@@ -136,6 +136,40 @@ const nextAnalysis = currentIndex < analyses.length - 1 ? analyses[currentIndex 
       </section>
     </div>
 
+    <!-- Summary of the Video -->
+    {item.videoSummary && (
+      <section class="video-summary-card">
+        <div class="video-header">
+          <h2 class="video-title">Summary of the Video</h2>
+          <p class="video-desc">
+            Explore a visual narrative and comprehensive summary of <strong>{item.title}</strong> through this educational video recap.
+          </p>
+        </div>
+
+        <div class="video-player-container">
+          <iframe 
+            src={`https://www.youtube-nocookie.com/embed/${item.videoSummary.youtubeId}`}
+            title={`Summary of ${item.title} in video`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+            class="video-iframe"
+          ></iframe>
+        </div>
+
+        <div class="video-credits-bar">
+          <div class="credits-meta">
+            <span class="credits-label">Credits to:</span>
+            <span class="credits-creator">{item.videoSummary.creator}</span>
+          </div>
+          <a href={item.videoSummary.youtubeUrl} target="_blank" rel="noopener noreferrer" class="youtube-direct-btn">
+            <span>Watch on YouTube</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </section>
+    )}
+
     <!-- Navigation between analyses -->
     <nav class="analysis-pagination">
       {prevAnalysis ? (
@@ -337,7 +371,6 @@ const nextAnalysis = currentIndex < analyses.length - 1 ? analyses[currentIndex 
   .lens-highlight-card {
     background: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-left: 3px solid var(--color-accent);
     border-radius: 6px;
     padding: 1.25rem 1.5rem;
   }
@@ -545,6 +578,101 @@ const nextAnalysis = currentIndex < analyses.length - 1 ? analyses[currentIndex 
     padding: 0.2rem 0.55rem;
     border-radius: 4px;
     border: 1px solid var(--color-border);
+  }
+
+  /* Video Summary Card Container */
+  .video-summary-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 2.25rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .video-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .video-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem;
+  }
+
+  .video-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .video-player-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #110e0c;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 16px rgba(28, 25, 23, 0.12);
+    margin-bottom: 1.25rem;
+  }
+
+  .video-iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .video-credits-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.85rem 1.15rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.88rem;
+  }
+
+  .credits-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .credits-label {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .credits-creator {
+    color: var(--color-warm-brown);
+    font-weight: 600;
+  }
+
+  .youtube-direct-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.84rem;
+    transition: color 0.15s ease;
+  }
+
+  .youtube-direct-btn:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 
   /* Pagination */

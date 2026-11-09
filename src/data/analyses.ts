@@ -3,6 +3,12 @@ export interface LiteraryCharacter {
   role: string;
 }
 
+export interface VideoSummary {
+  youtubeUrl: string;
+  youtubeId: string;
+  creator: string;
+}
+
 export interface LiteraryAnalysis {
   id: string;
   number: number;
@@ -24,6 +30,7 @@ export interface LiteraryAnalysis {
     textualEvidence: string;
     conclusion: string;
   };
+  videoSummary?: VideoSummary;
 }
 
 export const analyses: LiteraryAnalysis[] = [
@@ -64,6 +71,11 @@ export const analyses: LiteraryAnalysis[] = [
       lensApplication: "Through an ecocritical lens, the story turns the usual human-centered worldview completely upside down. Humans often think the earth was built only to serve our convenience. But the Voice asks Job about places where no human ever walks, such as the rain falling in deserted wilderness, the wild mountain goats giving birth in secret crags, and the untamable Leviathan playing in the deep sea. Nature has its own sacred worth and beauty, and realizing this frees humans from the arrogant belief that everything in the cosmos revolves around us.",
       textualEvidence: "Chapters 38 through 41 are filled with vivid nature poetry. The Voice asks Job where he was when the foundations of the earth were laid, who tells the violent ocean waves where to halt, and who provides food for the ravens and wild mountain goats. These questions are not meant to crush Job, but to release him from his anxiety by reminding him that the same caring power that sustains the stars and wild beasts is also present through his darkest days.",
       conclusion: "Living through severe typhoons always reminds me of this story, because you truly see how small we are against nature. It taught me to respect forces beyond my control and to focus on preparing rather than panicking."
+    },
+    videoSummary: {
+      youtubeUrl: "https://youtu.be/WBRPB5UfymQ",
+      youtubeId: "WBRPB5UfymQ",
+      creator: "Light of All Mankind Bible"
     }
   },
   {
@@ -103,6 +115,11 @@ export const analyses: LiteraryAnalysis[] = [
       lensApplication: "Using a structuralist lens, we see how the architecture of the book is carefully designed. Stories are nested inside each other like Russian matryoshka dolls, where a character in one tale begins telling another story to prove a point. This interconnected pattern mirrors how human relationships work: every situation has a back-story, and one choice triggers a chain reaction across the entire community. The universal animal archetypes (the proud lion, the wily jackal, the patient turtle) allow readers of any culture to easily recognize human personality types.",
       textualEvidence: "In the famous opening book, 'The Loss of Friends,' a deep bond develops between a noble lion named Pingalaka and an honest grass-eating bull named Sanjivaka. Their partnership brings peace to the entire forest. However, two hungry jackals named Karataka and Damanaka become jealous of their bond and start whispering deceitful rumors into both ears until the friends tragically fight. It serves as a timeless reminder of how toxic gossip can destroy genuine trust.",
       conclusion: "This book reminds me of a time when team projects started failing because of miscommunication and outside gossip. It made me realize how easily good partnerships can break down if you let doubts divide you."
+    },
+    videoSummary: {
+      youtubeUrl: "https://youtu.be/iwJjrgAqWos",
+      youtubeId: "iwJjrgAqWos",
+      creator: "Ithihasam - Indian Scriptures"
     }
   },
   {
@@ -146,6 +163,11 @@ export const analyses: LiteraryAnalysis[] = [
       lensApplication: "Through an archetypal lens, the Ramayana is a foundational story of the Hero's Journey. Rama represents the archetype of the Ideal Human, not because he has magic powers, but because he masters his emotions and puts duty above selfish desires. Sita represents the archetype of unbreakable inner purity and resilience. Ravana represents the archetype of destructive ego and inflated intellect without moral anchor. The conflict between them is the universal human struggle between moral balance (Dharma) and selfish chaos (Adharma).",
       textualEvidence: "When Lakshmana furiously suggests overthrowing their father to claim the throne, Rama gently calms him down, explaining that anger cannot build a peaceful life. Later in the story, the selflessness of characters like Hanuman, who crosses the vast ocean to find Sita without asking for any reward, proves that pure loyalty and quiet courage can accomplish things that armies cannot.",
       conclusion: "Whenever I work on a big project, I always think about how vital teamwork and trust are. Rama's journey reflects my own experience that no hard goal can be achieved without dependable friends backing you up."
+    },
+    videoSummary: {
+      youtubeUrl: "https://youtu.be/cvCv7kTcRXI",
+      youtubeId: "cvCv7kTcRXI",
+      creator: "Peekaboo Kidz"
     }
   },
   {
@@ -189,6 +211,11 @@ export const analyses: LiteraryAnalysis[] = [
       lensApplication: "Through a socioeconomic lens, the war of Kurukshetra is fundamentally a clash over empire, tribute, and concentrated wealth. The royal Kauravas refuse to grant the Pandavas even five small villages, preferring total war over sharing imperial land. Behind the speeches of chivalry and heroic bloodlines, the epic honestly reveals the horrific human cost: millions of foot soldiers, horsemen, and commoners are slaughtered in eighteen days simply to decide which group of royal cousins sits on the golden throne.",
       textualEvidence: "The tragic character of Karna provides sharp socioeconomic insight. Although gifted with legendary archery skills, he is constantly insulted and denied equal respect by royal princes because he was raised by a chariot driver. His story highlights how rigid class hierarchies can poison a society and push talented people into bitter rivalries. Furthermore, the sorrowful aftermath of the war, where women weep over empty fields and a ruined kingdom, demonstrates that imperial conquest leaves everyone impoverished.",
       conclusion: "During deadlines, I often balance academic duties and life responsibilities, just like the conflicts in this book. It shows me that tough decisions always have trade-offs, so I need to weigh the long-term impact of my choices."
+    },
+    videoSummary: {
+      youtubeUrl: "https://youtu.be/42W6axXrIuw",
+      youtubeId: "42W6axXrIuw",
+      creator: "Overly Sarcastic Productions"
     }
   },
   {
@@ -236,6 +263,11 @@ export const analyses: LiteraryAnalysis[] = [
       lensApplication: "Using a psychoanalytic lens, Odysseus's ten-year wandering is not just a geographic detour; it is an internal voyage through the human psyche. The monsters he encounters represent deep psychological traps: the Lotus-Eaters represent the urge to numb reality and escape responsibility; the Sirens represent deadly intellectual ego; and Calypso represents the desire to stay trapped in comfortable, child-like dependency without aging. To become whole again, Odysseus must confront his own pride and overcome these unconscious desires.",
       textualEvidence: "Odysseus's intelligence shines in the cave of the Cyclops when he tells the monster that his name is 'Nobody.' When Odysseus blinds the giant to escape, the Cyclops yells to his friends that 'Nobody is hurting me,' preventing anyone from coming to his aid. Yet Odysseus also has to learn patience: when he finally reaches Ithaca, he disguises himself as an old beggar and takes insults in his own home to carefully assess who is still loyal before reclaiming his rightful place.",
       conclusion: "Odysseus's journey feels a lot like grinding through school projects where everything that can go wrong does. It taught me that patience, adaptability, and keeping a calm head are what actually get you past the finish line."
+    },
+    videoSummary: {
+      youtubeUrl: "https://youtu.be/mJS-QVw8lzY",
+      youtubeId: "mJS-QVw8lzY",
+      creator: "Unknown Frequencies"
     }
   },
   {
@@ -279,6 +311,11 @@ export const analyses: LiteraryAnalysis[] = [
       lensApplication: "Through a historical and contextual lens, the poem mirrors the mindset of 11th-century medieval Europe during the launch of the First Crusade. The strict feudal code demanded absolute fidelity between lord and vassal. In this world, a warrior’s reputation ('lineage and renown') was literally more valuable than biological survival. By examining this context, we understand why Roland refuses to blow his horn: to a medieval knight, calling for help was seen as an unforgivable stain upon his family line.",
       textualEvidence: "The tense debate between Roland and his closest friend Oliver is the emotional core of the poem. Oliver sensibly urges Roland to blow his ivory horn Olifant while Charlemagne's main army is still close enough to turn around and rescue them. Roland stubbornly rejects the advice, boasting that he will never bring disgrace upon his family line. Only when almost every knight lies fallen does Roland finally blow the horn with all his strength, bursting his temples in a tragic final act of sacrifice.",
       conclusion: "This story is a powerful lesson on the dangerous boundary between courage and stubborn pride. It reminds us that standing firm is honorable, but refusing to ask for help when needed leads to disaster."
+    },
+    videoSummary: {
+      youtubeUrl: "https://youtu.be/_fR4_HI84Fo",
+      youtubeId: "_fR4_HI84Fo",
+      creator: "Book Recap"
     }
   },
   {
@@ -322,6 +359,11 @@ export const analyses: LiteraryAnalysis[] = [
       lensApplication: "Through a feminist lens, the novel offers an extraordinary, rare look inside the secluded lives of aristocratic women in 11th-century Japan. Women in the Heian court were kept physically hidden behind silk curtains and wooden lattices, and their social standing depended almost entirely on male patrons. Murasaki Shikibu uses her writing to show that these women were not passive ornaments: they were sharp, deeply educated poets, painters, and observers who felt the pain of polygamous court life and used literature and art to assert their own emotional dignity.",
       textualEvidence: "Across the novel's chapters, court life is guided by artistic sensitivity. Characters communicate their most honest feelings by writing short, delicate poems on custom-colored papers chosen to match the season, often attaching them to a fragrant plum blossom or autumn leaf. When Genji experiences loss, including the heartbreaking passing of his beloved Murasaki, his grief turns into quiet contemplation, leading him to seek spiritual peace and detachment.",
       conclusion: "This story makes me realize how much subtle influence, power dynamics, and social cues shape human interactions. It proves that emotional awareness and understanding the people around you are just as important as direct action."
+    },
+    videoSummary: {
+      youtubeUrl: "https://youtu.be/BAD1gARMVho",
+      youtubeId: "BAD1gARMVho",
+      creator: "Pivotal Pages"
     }
   }
 ];
