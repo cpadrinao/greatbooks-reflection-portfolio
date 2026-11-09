@@ -53,8 +53,18 @@ const coverThemes = [
 >
   <!-- Hero Section: Clean Ivory White (#ffffff) with Ambient Floating Book Silhouettes -->
   <section class="hero-section">
-    <!-- Ambient Animated Floating Book Layer -->
+    <!-- Ambient Animated Floating Book Layer with Great Books Emojis -->
     <div class="floating-books-stage" aria-hidden="true">
+      <!-- Floating Emojis representing the Great Books Canon -->
+      <span class="floating-emoji float-emoji-1" title="Classical Canon">📚</span>
+      <span class="floating-emoji float-emoji-2" title="Ancient Scrolls">📜</span>
+      <span class="floating-emoji float-emoji-3" title="Classical Antiquity">🏛️</span>
+      <span class="floating-emoji float-emoji-4" title="Epic Conflict">⚔️</span>
+      <span class="floating-emoji float-emoji-5" title="Open Masterpiece">📖</span>
+      <span class="floating-emoji float-emoji-6" title="Tragedy and Drama">🎭</span>
+      <span class="floating-emoji float-emoji-7" title="Honor and Crown">👑</span>
+      <span class="floating-emoji float-emoji-8" title="Wisdom Flame">🕯️</span>
+
       <div class="floating-element float-book-1">
         <svg xmlns="http://www.w3.org/2000/svg" width="68" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
@@ -407,6 +417,58 @@ const coverThemes = [
         }
       }
     }
+
+    // Dynamic Emoji and Element Collision Detection: Blurs emojis when they hit buttons or text
+    const floatingItems = Array.from(document.querySelectorAll<HTMLElement>(".floating-emoji, .floating-element"));
+    const obstacleElements = Array.from(document.querySelectorAll<HTMLElement>(
+      ".hero-label, .hero-heading, .hero-lead, .hero-cta-row, .btn, .hero-book-showcase"
+    ));
+
+    if (floatingItems.length > 0 && obstacleElements.length > 0) {
+      function checkCollisions() {
+        // Step 1: Batch all measurements together to avoid layout thrashing
+        const obsRects = obstacleElements.map((el) => el.getBoundingClientRect());
+        const itemRects = floatingItems.map((el) => el.getBoundingClientRect());
+
+        // Step 2: Test collisions and apply blur class
+        for (let i = 0; i < floatingItems.length; i++) {
+          const eRect = itemRects[i];
+          // Skip if element is not rendered
+          if (eRect.width === 0 && eRect.height === 0) continue;
+
+          let isHit = false;
+          for (let j = 0; j < obsRects.length; j++) {
+            const oRect = obsRects[j];
+            if (oRect.width === 0 && oRect.height === 0) continue;
+
+            // 15px proximity buffer so the blur engages smoothly as it hits or approaches the obstacle
+            if (
+              eRect.left < oRect.right + 15 &&
+              eRect.right > oRect.left - 15 &&
+              eRect.top < oRect.bottom + 15 &&
+              eRect.bottom > oRect.top - 15
+            ) {
+              isHit = true;
+              break;
+            }
+          }
+
+          if (isHit) {
+            if (!floatingItems[i].classList.contains("is-blurred")) {
+              floatingItems[i].classList.add("is-blurred");
+            }
+          } else {
+            if (floatingItems[i].classList.contains("is-blurred")) {
+              floatingItems[i].classList.remove("is-blurred");
+            }
+          }
+        }
+
+        requestAnimationFrame(checkCollisions);
+      }
+
+      requestAnimationFrame(checkCollisions);
+    }
   });
 </script>
 
@@ -430,11 +492,47 @@ const coverThemes = [
     overflow: hidden;
   }
 
+  /* Ambient Floating Emojis */
+  .floating-emoji {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.25rem;
+    color: var(--color-bg);
+    opacity: 0.22;
+    filter: grayscale(100%) brightness(0) invert(98%) sepia(12%) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+    user-select: none;
+    will-change: transform, filter, opacity;
+    transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .float-emoji-1 { top: 8%; left: 3%; animation: floatDrift 7.5s ease-in-out infinite alternate; }
+  .float-emoji-2 { top: 38%; left: 16%; font-size: 2.4rem; animation: floatBob 6.5s ease-in-out infinite alternate; animation-delay: -1.2s; }
+  .float-emoji-3 { top: 68%; left: 4%; font-size: 2.1rem; animation: floatTilt 8s ease-in-out infinite alternate; animation-delay: -2.5s; }
+  .float-emoji-4 { bottom: 8%; left: 22%; font-size: 2.3rem; animation: floatDrift 7s ease-in-out infinite alternate; animation-delay: -1.8s; }
+  .float-emoji-5 { top: 12%; right: 42%; font-size: 2.2rem; animation: floatBob 8.5s ease-in-out infinite alternate; animation-delay: -3s; }
+  .float-emoji-6 { bottom: 14%; right: 40%; font-size: 2.35rem; animation: floatTilt 7.2s ease-in-out infinite alternate; animation-delay: -0.9s; }
+  .float-emoji-7 { top: 14%; right: 4%; font-size: 2.5rem; animation: floatBob 6.8s ease-in-out infinite alternate; animation-delay: -1.5s; }
+  .float-emoji-8 { bottom: 12%; right: 6%; font-size: 2.15rem; animation: floatDrift 7.4s ease-in-out infinite alternate; animation-delay: -2.2s; }
+
   .floating-element {
     position: absolute;
     color: #ffffff;
     opacity: 0.15;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    transition: filter 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* When an emoji or floating item collides with buttons or text, it blurs smoothly */
+  .floating-emoji.is-blurred {
+    filter: blur(14px) grayscale(100%) brightness(0) invert(98%) !important;
+    opacity: 0.07 !important;
+  }
+
+  .floating-element.is-blurred {
+    filter: blur(12px) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) !important;
+    opacity: 0.04 !important;
   }
 
   .float-book-1 { top: 10%; left: 4%; animation: floatDrift 14s ease-in-out infinite alternate; }
@@ -518,6 +616,8 @@ const coverThemes = [
     opacity: 0.95;
     margin: 0 0 2rem;
     min-height: 5.4em; /* Preserves vertical space so layout remains stable during typing */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .typing-cursor {
@@ -545,6 +645,11 @@ const coverThemes = [
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+  }
+
+  .hero-cta-row .btn {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .btn {

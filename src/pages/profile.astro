@@ -70,7 +70,7 @@ const student = {
           <span class="card-corner corner-br"></span>
 
           <!-- Large Portrait Photo Frame with Smooth Hover Transition -->
-          <div class="large-photo-frame" tabindex="0" title="Hover to view alternate portrait">
+          <div class="large-photo-frame" title="Hover to view alternate portrait">
             <img 
               src={student.photoDefault} 
               alt="Crisler Annilov B. Padrinao portrait" 
@@ -176,14 +176,60 @@ const student = {
   </div>
 
   <script>
-    // Smooth touch toggle on mobile devices for the profile photo
+    // Profile Portrait: Hover on desktop, automatic 5-second swap on smaller screens / mobile
     document.addEventListener('DOMContentLoaded', () => {
-      const frame = document.querySelector('.large-photo-frame');
-      if (frame) {
-        frame.addEventListener('click', () => {
-          frame.classList.toggle('is-touched');
-        });
+      const frame = document.querySelector<HTMLElement>('.large-photo-frame');
+      if (!frame) return;
+
+      const mediaQuery = window.matchMedia('(max-width: 940px)');
+      let autoTimer: ReturnType<typeof setInterval> | null = null;
+
+      function startMobileAutoCycle() {
+        if (autoTimer) return;
+        autoTimer = setInterval(() => {
+          frame.classList.toggle('is-alternate');
+        }, 5000);
       }
+
+      function stopMobileAutoCycle() {
+        if (autoTimer) {
+          clearInterval(autoTimer);
+          autoTimer = null;
+        }
+        frame.classList.remove('is-alternate');
+      }
+
+      function handleScreenSize(e: MediaQueryList | MediaQueryListEvent) {
+        if (e.matches) {
+          startMobileAutoCycle();
+        } else {
+          stopMobileAutoCycle();
+        }
+      }
+
+      // Initial check on load
+      handleScreenSize(mediaQuery);
+
+      // Listen for viewport resize or device rotation
+      if (typeof mediaQuery.addEventListener === 'function') {
+        mediaQuery.addEventListener('change', handleScreenSize);
+      } else {
+        mediaQuery.addListener(handleScreenSize);
+      }
+
+      // On mobile / small screens, tapping also toggles immediately
+      frame.addEventListener('click', () => {
+        if (mediaQuery.matches) {
+          frame.classList.toggle('is-alternate');
+        }
+      });
+
+      // On desktop, moving mouse away always returns to the default portrait
+      frame.addEventListener('mouseleave', () => {
+        if (!mediaQuery.matches) {
+          frame.classList.remove('is-alternate');
+        }
+      });
     });
   </script>
 </Layout>
@@ -362,15 +408,13 @@ const student = {
   }
 
   .large-photo-frame:hover .photo-default,
-  .large-photo-frame:focus-within .photo-default,
-  .large-photo-frame.is-touched .photo-default {
+  .large-photo-frame.is-alternate .photo-default {
     opacity: 0;
     transform: scale(1.44) translate(2%, -13%);
   }
 
   .large-photo-frame:hover .photo-hover,
-  .large-photo-frame:focus-within .photo-hover,
-  .large-photo-frame.is-touched .photo-hover {
+  .large-photo-frame.is-alternate .photo-hover {
     opacity: 1;
     transform: scale(1.38) translateY(-8%);
   }
