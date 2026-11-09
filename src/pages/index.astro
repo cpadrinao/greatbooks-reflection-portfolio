@@ -113,10 +113,8 @@ const coverThemes = [
           My Literary Journey
         </h1>
         
-        <p class="hero-lead">
-          An exploration of timeless literary masterpieces across civilizational eras. 
-          Discover critical analyses, thematic reflections, and the enduring human dilemmas 
-          studied throughout our Great Books course.
+        <p class="hero-lead" id="typewriter-lead" data-full-text="An exploration of timeless literary masterpieces across civilizational eras. Discover critical analyses, thematic reflections, and the enduring human dilemmas studied throughout our Great Books course">
+          <span class="typewriter-text">An exploration of timeless literary masterpieces across civilizational eras. Discover critical analyses, thematic reflections, and the enduring human dilemmas studied throughout our Great Books course</span><span class="typing-cursor" aria-hidden="true">|</span><span class="animated-dots" aria-hidden="true">.</span>
         </p>
 
         <div class="hero-cta-row">
@@ -349,6 +347,66 @@ const coverThemes = [
         cardWrappers[idx].style.display = "flex";
       });
     }
+
+    // Typewriter Animation with Dynamic Back-and-Forth Dots for Hero Subtitle
+    const leadEl = document.getElementById("typewriter-lead");
+    if (leadEl) {
+      const textSpan = leadEl.querySelector<HTMLElement>(".typewriter-text");
+      const dotsSpan = leadEl.querySelector<HTMLElement>(".animated-dots");
+      const cursorSpan = leadEl.querySelector<HTMLElement>(".typing-cursor");
+      const fullText = leadEl.getAttribute("data-full-text");
+
+      if (textSpan && dotsSpan && fullText) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          textSpan.textContent = fullText;
+          dotsSpan.textContent = "...";
+          if (cursorSpan) cursorSpan.style.display = "none";
+        } else {
+          textSpan.textContent = "";
+          dotsSpan.textContent = "";
+
+          let charIndex = 0;
+          const baseSpeed = 50; // Slower, deliberate typewriter pace
+
+          function typeChar() {
+            if (charIndex < fullText.length) {
+              const char = fullText.charAt(charIndex);
+              textSpan.textContent += char;
+              charIndex++;
+
+              // Natural cadence: brief pause after periods and commas
+              let delay = baseSpeed;
+              if (char === ".") {
+                delay = 320;
+              } else if (char === ",") {
+                delay = 140;
+              }
+
+              setTimeout(typeChar, delay);
+            } else {
+              // Finished typing sentence: hide cursor and initiate continuous back-and-forth dots
+              if (cursorSpan) cursorSpan.style.display = "none";
+              startDotCycle();
+            }
+          }
+
+          function startDotCycle() {
+            // Sequence cycling from single dot to triple dot, then reversing back and forth
+            const dotSequence = [".", "..", "...", ".."];
+            let dotIndex = 0;
+            dotsSpan.textContent = dotSequence[dotIndex];
+
+            setInterval(() => {
+              dotIndex = (dotIndex + 1) % dotSequence.length;
+              dotsSpan.textContent = dotSequence[dotIndex];
+            }, 450);
+          }
+
+          // Gentle initial delay before typing commences
+          setTimeout(typeChar, 350);
+        }
+      }
+    }
   });
 </script>
 
@@ -459,6 +517,28 @@ const coverThemes = [
     color: var(--color-bg);
     opacity: 0.95;
     margin: 0 0 2rem;
+    min-height: 5.4em; /* Preserves vertical space so layout remains stable during typing */
+  }
+
+  .typing-cursor {
+    display: inline-block;
+    color: #fde68a;
+    font-weight: 300;
+    margin-left: 2px;
+    animation: blinkCursor 0.75s infinite;
+  }
+
+  @keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  .animated-dots {
+    display: inline-block;
+    color: #fde68a;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    min-width: 1.2em; /* Keeps width steady while dots oscillate */
   }
 
   .hero-cta-row {
