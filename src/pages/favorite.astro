@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const favorite = {
   title: "The Iliad",
@@ -54,6 +56,18 @@ const favorite = {
     creator: "Unknown Frequencies"
   }
 };
+
+// Read SVG background image at build time so it inlines directly into HTML (zero loading delay)
+let inlinedBgSvg = '';
+try {
+  const bgFilePath = path.resolve(`./public${favorite.pixelBg}`);
+  if (fs.existsSync(bgFilePath)) {
+    const rawSvg = fs.readFileSync(bgFilePath, 'utf8');
+    inlinedBgSvg = rawSvg.replace('<svg ', '<svg preserveAspectRatio="xMidYMax slice" ');
+  }
+} catch (e) {
+  inlinedBgSvg = '';
+}
 ---
 
 <Layout 
@@ -63,7 +77,9 @@ const favorite = {
   <div class="favorite-stage-wrapper">
     <!-- Full-Bleed Ambient Pixel Landscape Stage (Signature Book Cloth Crimson Backing) with Floating Epic Emojis -->
     <div class="full-bleed-pixel-stage" aria-hidden="true">
-      <div class="pixel-stage-backdrop" style={`background-image: url('${favorite.pixelBg}');`}></div>
+      <div class="pixel-stage-backdrop" style={!inlinedBgSvg ? `background-image: url('${favorite.pixelBg}');` : undefined}>
+        {inlinedBgSvg && <Fragment set:html={inlinedBgSvg} />}
+      </div>
       <div class="pixel-stage-vignette"></div>
       
       <!-- Floating Emojis relating to The Iliad: 8 icons balanced 4 on each side -->
@@ -232,15 +248,30 @@ const favorite = {
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
+    animation: fadeInStage 0.35s ease-out;
+  }
+
+  @keyframes fadeInStage {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 
   .pixel-stage-backdrop {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
     opacity: 0.38;
+    overflow: hidden;
+  }
+
+  .pixel-stage-backdrop svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   .pixel-stage-vignette {
