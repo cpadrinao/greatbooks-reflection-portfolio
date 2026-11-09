@@ -61,5 +61,3 @@ If you want to view and run this website on your own computer:
 
 * **Crisler Annilov B. Padrinao**
 * 4th Year, Bachelor of Science in Computer Science
-* Subject: Great Books (NRs)
-* Instructor: Prof. Raquel Ballares
