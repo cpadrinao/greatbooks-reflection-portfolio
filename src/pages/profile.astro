@@ -177,26 +177,32 @@ const student = {
 
   <script>
     // Profile Portrait: Hover on desktop, automatic 5-second swap on smaller screens / mobile
-    document.addEventListener('DOMContentLoaded', () => {
+    let profileAutoTimer: ReturnType<typeof setInterval> | null = null;
+
+    function initProfilePortrait() {
+      if (profileAutoTimer) {
+        clearInterval(profileAutoTimer);
+        profileAutoTimer = null;
+      }
+
       const frame = document.querySelector<HTMLElement>('.large-photo-frame');
       if (!frame) return;
 
       const mediaQuery = window.matchMedia('(max-width: 940px)');
-      let autoTimer: ReturnType<typeof setInterval> | null = null;
 
       function startMobileAutoCycle() {
-        if (autoTimer) return;
-        autoTimer = setInterval(() => {
-          frame.classList.toggle('is-alternate');
+        if (profileAutoTimer) return;
+        profileAutoTimer = setInterval(() => {
+          frame?.classList.toggle('is-alternate');
         }, 5000);
       }
 
       function stopMobileAutoCycle() {
-        if (autoTimer) {
-          clearInterval(autoTimer);
-          autoTimer = null;
+        if (profileAutoTimer) {
+          clearInterval(profileAutoTimer);
+          profileAutoTimer = null;
         }
-        frame.classList.remove('is-alternate');
+        frame?.classList.remove('is-alternate');
       }
 
       function handleScreenSize(e: MediaQueryList | MediaQueryListEvent) {
@@ -230,7 +236,9 @@ const student = {
           frame.classList.remove('is-alternate');
         }
       });
-    });
+    }
+
+    document.addEventListener('astro:page-load', initProfilePortrait);
   </script>
 </Layout>
 

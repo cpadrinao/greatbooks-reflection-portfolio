@@ -1,0 +1,553 @@
+---
+// Ambient Music Player Component
+// Featuring "Killswitch Lullaby" by Flawed Mangoes
+// Persisted across all page transitions with zero timer restart
+---
+
+<div 
+  id="ambient-player-container" 
+  class="ambient-player-container" 
+  transition:persist="ambient-music-player"
+  aria-label="Ambient background music player"
+>
+  <audio 
+    id="ambient-audio" 
+    src="/music/Killswitch Lullaby.mp3" 
+    preload="auto" 
+    loop
+  ></audio>
+
+  <!-- Player Shell (Transitions from rolling CD disc to full control card) -->
+  <div class="player-shell" id="player-shell">
+    
+    <!-- Disc / Turntable Vinyl (Always present, spins when playing) -->
+    <button 
+      type="button" 
+      id="player-disc-btn" 
+      class="player-disc-btn" 
+      aria-label="Toggle ambient music controls" 
+      title="Ambient Music: Killswitch Lullaby by Flawed Mangoes"
+    >
+      <div class="disc-vinyl" id="disc-vinyl">
+        <div class="disc-grooves"></div>
+        <div class="disc-sheen"></div>
+        <div class="disc-center">
+          <img 
+            src="/images/musiccover.jpg" 
+            alt="Killswitch Lullaby Cover Art" 
+            class="disc-cover" 
+          />
+          <div class="disc-spindle"></div>
+        </div>
+      </div>
+    </button>
+
+    <!-- Slide-out Control Tray (Revealed on hover or tap) -->
+    <div class="player-tray" id="player-tray">
+      <div class="track-meta">
+        <span class="track-tag">Soundtrack</span>
+        <h4 class="track-title" title="Killswitch Lullaby">Killswitch Lullaby</h4>
+        <span class="track-artist">Flawed Mangoes</span>
+      </div>
+
+      <div class="tray-controls">
+        <!-- Play / Pause Button -->
+        <button 
+          type="button" 
+          id="play-pause-btn" 
+          class="btn-control play-toggle" 
+          aria-label="Play or pause ambient music" 
+          title="Play / Pause"
+        >
+          <!-- Play Icon -->
+          <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+          <!-- Pause Icon -->
+          <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+          </svg>
+        </button>
+
+        <!-- Mute / Unmute Button -->
+        <button 
+          type="button" 
+          id="mute-btn" 
+          class="btn-control mute-toggle" 
+          aria-label="Mute or unmute ambient audio" 
+          title="Mute / Unmute"
+        >
+          <!-- Volume High Icon -->
+          <svg class="icon-vol-on" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <!-- Volume Muted Icon -->
+          <svg class="icon-vol-off" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function setupAmbientMusicPlayer() {
+    const root = document.getElementById('ambient-player-container');
+    if (!root) return;
+
+    // Prevent duplicate event bindings on the persistent DOM element
+    if (root.dataset.initialized === 'true') return;
+    root.dataset.initialized = 'true';
+
+    const audio = document.getElementById('ambient-audio') as HTMLAudioElement | null;
+    const discBtn = document.getElementById('player-disc-btn');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const muteBtn = document.getElementById('mute-btn');
+
+    if (!audio) return;
+
+    let userManuallyPaused = false;
+
+    // Update UI play state
+    function updatePlayUi(isPlaying: boolean) {
+      if (!root) return;
+      if (isPlaying) {
+        root.classList.add('is-playing');
+      } else {
+        root.classList.remove('is-playing');
+      }
+    }
+
+    // Update UI mute state
+    function updateMuteUi(isMuted: boolean) {
+      if (!root) return;
+      if (isMuted) {
+        root.classList.add('is-muted');
+      } else {
+        root.classList.remove('is-muted');
+      }
+    }
+
+    // Attempt playback safely
+    function attemptPlay() {
+      if (!audio || userManuallyPaused || audio.hasAttribute('data-manually-paused')) return;
+      audio.play().then(() => {
+        updatePlayUi(true);
+        cleanupInteractionListeners();
+      }).catch((err) => {
+        // Autoplay policy awaiting user activation; listeners remain active
+      });
+    }
+
+    // Toggle Play / Pause
+    function togglePlay() {
+      if (!audio) return;
+      if (audio.paused) {
+        userManuallyPaused = false;
+        audio.removeAttribute('data-manually-paused');
+        audio.play().then(() => {
+          updatePlayUi(true);
+        }).catch((err) => {
+          console.log('Audio playback awaiting permission:', err);
+        });
+      } else {
+        userManuallyPaused = true;
+        audio.setAttribute('data-manually-paused', 'true');
+        audio.pause();
+        updatePlayUi(false);
+      }
+    }
+
+    // Toggle Mute / Unmute
+    function toggleMute() {
+      if (!audio) return;
+      audio.muted = !audio.muted;
+      updateMuteUi(audio.muted);
+    }
+
+    // Click disc: toggle play or toggle expand on mobile
+    if (discBtn) {
+      discBtn.addEventListener('click', () => {
+        const isMobile = window.matchMedia('(max-width: 768px)').matches;
+        if (isMobile) {
+          // On mobile, tap toggles open / close
+          root.classList.toggle('is-expanded');
+          // If paused when tapping, also start playing
+          if (audio.paused && !userManuallyPaused) {
+            audio.play().catch(() => {});
+          }
+        } else {
+          // On desktop, clicking disc toggles playback
+          togglePlay();
+        }
+      });
+    }
+
+    // Play/Pause button in tray
+    if (playPauseBtn) {
+      playPauseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        togglePlay();
+      });
+    }
+
+    // Mute button in tray
+    if (muteBtn) {
+      muteBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMute();
+      });
+    }
+
+    // Audio state events
+    audio.addEventListener('play', () => updatePlayUi(true));
+    audio.addEventListener('pause', () => updatePlayUi(false));
+    audio.addEventListener('volumechange', () => updateMuteUi(audio.muted));
+
+    // Close on click outside (mobile)
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target as Node)) {
+        root.classList.remove('is-expanded');
+      }
+    });
+
+    // Valid user activation events recognized by modern browsers
+    const interactionEvents = ['pointerdown', 'click', 'touchstart', 'touchend', 'keydown'];
+
+    function onUserGesture() {
+      attemptPlay();
+    }
+
+    function cleanupInteractionListeners() {
+      interactionEvents.forEach((evt) => {
+        window.removeEventListener(evt, onUserGesture, { capture: true });
+      });
+    }
+
+    // Listen on user gestures until audio starts successfully
+    interactionEvents.forEach((evt) => {
+      window.addEventListener(evt, onUserGesture, { capture: true, passive: true });
+    });
+
+    // Try playing immediately on load
+    attemptPlay();
+  }
+
+  // Initialize immediately and also on page-load for view transitions safety
+  setupAmbientMusicPlayer();
+  document.addEventListener('astro:page-load', () => {
+    setupAmbientMusicPlayer();
+    const audio = document.getElementById('ambient-audio') as HTMLAudioElement | null;
+    if (audio && audio.paused && !audio.hasAttribute('data-manually-paused')) {
+      audio.play().catch(() => {});
+    }
+  });
+</script>
+
+<style>
+  /* Fixed Ambient Player Root */
+  .ambient-player-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    font-family: var(--font-body);
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Shell Container: transitions gracefully from compact circle to rounded card */
+  .player-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: 40px;
+    box-shadow: 0 6px 20px rgba(17, 14, 12, 0.12);
+    padding: 4px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 62px;
+    height: 62px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  /* Expand on hover or when toggled via is-expanded */
+  .ambient-player-container:hover .player-shell,
+  .ambient-player-container.is-expanded .player-shell {
+    max-width: 390px;
+    width: max-content;
+    height: 66px;
+    padding: 6px 18px 6px 6px;
+    box-shadow: 0 10px 28px rgba(17, 14, 12, 0.18);
+    border-color: #d6d3cd;
+    overflow: visible;
+  }
+
+  /* Disc Vinyl Button */
+  .player-disc-btn {
+    position: relative;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+  }
+
+  /* The Realistic Vinyl / CD Disc */
+  .disc-vinyl {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #292524 0%, #1c1917 45%, #44403c 48%, #1c1917 50%, #292524 75%, #0c0a09 100%);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spinTape 7.5s linear infinite;
+    animation-play-state: paused;
+    will-change: transform;
+  }
+
+  /* Running rotation animation when playing */
+  .ambient-player-container.is-playing .disc-vinyl {
+    animation-play-state: running;
+  }
+
+  @keyframes spinTape {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Micro Grooves on Disc */
+  .disc-grooves {
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.35), inset 0 0 0 5px rgba(255, 255, 255, 0.04);
+    pointer-events: none;
+  }
+
+  /* Light Sheen / Reflection */
+  .disc-sheen {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, transparent 40%, rgba(255, 255, 255, 0.12) 60%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Center Label with Cover Image */
+  .disc-center {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1.5px solid #d6d3cd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fbfaf7;
+  }
+
+  .disc-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Center Spindle Hole */
+  .disc-spindle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fbfaf7;
+    border: 1px solid #78716c;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Slide-out Player Tray: Spacious single-row layout */
+  .player-tray {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-left: 12px;
+    min-width: 210px;
+    opacity: 0;
+    transform: translateX(8px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+
+  .ambient-player-container:hover .player-tray,
+  .ambient-player-container.is-expanded .player-tray {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  /* Track Metadata: Larger, prominent, comfortable typography */
+  .track-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .track-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+
+  .track-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0;
+    line-height: 1.25;
+    white-space: nowrap;
+  }
+
+  .track-artist {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    line-height: 1.25;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+
+  /* Controls Row */
+  .tray-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .btn-control {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.15s ease;
+  }
+
+  .btn-control:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #ffffff;
+    transform: scale(1.06);
+  }
+
+  .btn-control:active {
+    transform: scale(0.94);
+  }
+
+  /* Play / Pause Icon toggling */
+  .icon-pause {
+    display: none;
+  }
+  .ambient-player-container.is-playing .icon-play {
+    display: none;
+  }
+  .ambient-player-container.is-playing .icon-pause {
+    display: block;
+  }
+
+  /* Mute / Unmute Icon toggling */
+  .icon-vol-off {
+    display: none;
+  }
+  .ambient-player-container.is-muted .icon-vol-on {
+    display: none;
+  }
+  .ambient-player-container.is-muted .icon-vol-off {
+    display: block;
+  }
+
+  /* Responsive styles for mobile */
+  @media (max-width: 768px) {
+    .ambient-player-container {
+      bottom: 16px;
+      right: 16px;
+    }
+
+    .player-shell {
+      max-width: 58px;
+      height: 58px;
+    }
+
+    .player-disc-btn, .disc-vinyl {
+      width: 48px;
+      height: 48px;
+    }
+
+    .disc-center {
+      width: 22px;
+      height: 22px;
+    }
+
+    .ambient-player-container.is-expanded .player-shell {
+      max-width: calc(100vw - 32px);
+      width: max-content;
+      height: 62px;
+      padding: 6px 14px 6px 6px;
+    }
+
+    .player-tray {
+      gap: 10px;
+      min-width: 170px;
+      margin-left: 8px;
+    }
+
+    .track-title {
+      font-size: 0.92rem;
+    }
+
+    .track-artist {
+      font-size: 0.78rem;
+    }
+
+    .btn-control {
+      width: 32px;
+      height: 32px;
+    }
+  }
+</style>

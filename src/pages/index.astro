@@ -339,8 +339,13 @@ const coverThemes = [
 </Layout>
 
 <script>
-  // Dynamic Random Rotation: Shuffles and displays 3 random masterpieces from the 7 on every page load/restart
-  document.addEventListener("DOMContentLoaded", () => {
+  let indexCollisionsRaf: number | null = null;
+  let dotInterval: ReturnType<typeof setInterval> | null = null;
+
+  function initIndexPage() {
+    if (dotInterval) { clearInterval(dotInterval); dotInterval = null; }
+    if (indexCollisionsRaf) { cancelAnimationFrame(indexCollisionsRaf); indexCollisionsRaf = null; }
+
     const cardWrappers = Array.from(document.querySelectorAll<HTMLElement>("[data-masterpiece-card]"));
     if (cardWrappers.length >= 3) {
       cardWrappers.forEach((el) => {
@@ -376,15 +381,15 @@ const coverThemes = [
           dotsSpan.textContent = "";
 
           let charIndex = 0;
-          const baseSpeed = 50; // Slower, deliberate typewriter pace
+          const baseSpeed = 50;
 
           function typeChar() {
+            if (!textSpan) return;
             if (charIndex < fullText.length) {
               const char = fullText.charAt(charIndex);
               textSpan.textContent += char;
               charIndex++;
 
-              // Natural cadence: brief pause after periods and commas
               let delay = baseSpeed;
               if (char === ".") {
                 delay = 320;
@@ -394,25 +399,22 @@ const coverThemes = [
 
               setTimeout(typeChar, delay);
             } else {
-              // Finished typing sentence: hide cursor and initiate continuous back-and-forth dots
               if (cursorSpan) cursorSpan.style.display = "none";
               startDotCycle();
             }
           }
 
           function startDotCycle() {
-            // Sequence cycling from single dot to triple dot, then reversing back and forth
             const dotSequence = [".", "..", "...", ".."];
             let dotIndex = 0;
-            dotsSpan.textContent = dotSequence[dotIndex];
+            if (dotsSpan) dotsSpan.textContent = dotSequence[dotIndex];
 
-            setInterval(() => {
+            dotInterval = setInterval(() => {
               dotIndex = (dotIndex + 1) % dotSequence.length;
-              dotsSpan.textContent = dotSequence[dotIndex];
+              if (dotsSpan) dotsSpan.textContent = dotSequence[dotIndex];
             }, 450);
           }
 
-          // Gentle initial delay before typing commences
           setTimeout(typeChar, 350);
         }
       }
@@ -426,14 +428,11 @@ const coverThemes = [
 
     if (floatingItems.length > 0 && obstacleElements.length > 0) {
       function checkCollisions() {
-        // Step 1: Batch all measurements together to avoid layout thrashing
         const obsRects = obstacleElements.map((el) => el.getBoundingClientRect());
         const itemRects = floatingItems.map((el) => el.getBoundingClientRect());
 
-        // Step 2: Test collisions and apply blur class
         for (let i = 0; i < floatingItems.length; i++) {
           const eRect = itemRects[i];
-          // Skip if element is not rendered
           if (eRect.width === 0 && eRect.height === 0) continue;
 
           let isHit = false;
@@ -441,7 +440,6 @@ const coverThemes = [
             const oRect = obsRects[j];
             if (oRect.width === 0 && oRect.height === 0) continue;
 
-            // 15px proximity buffer so the blur engages smoothly as it hits or approaches the obstacle
             if (
               eRect.left < oRect.right + 15 &&
               eRect.right > oRect.left - 15 &&
@@ -464,12 +462,14 @@ const coverThemes = [
           }
         }
 
-        requestAnimationFrame(checkCollisions);
+        indexCollisionsRaf = requestAnimationFrame(checkCollisions);
       }
 
-      requestAnimationFrame(checkCollisions);
+      indexCollisionsRaf = requestAnimationFrame(checkCollisions);
     }
-  });
+  }
+
+  document.addEventListener("astro:page-load", initIndexPage);
 </script>
 
 <style>

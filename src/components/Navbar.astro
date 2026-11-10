@@ -73,23 +73,31 @@ const isActive = (href: string) => {
 </header>
 
 <script>
-  const toggleBtn = document.getElementById('mobile-menu-btn');
-  const navMenu = document.getElementById('site-nav');
+  function initMobileMenu() {
+    const toggleBtn = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('site-nav');
 
-  if (toggleBtn && navMenu) {
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
-      navMenu.classList.toggle('is-open');
-    });
+    if (toggleBtn && navMenu) {
+      if (toggleBtn.dataset.menuBound === 'true') return;
+      toggleBtn.dataset.menuBound = 'true';
 
-    document.addEventListener('click', (e) => {
-      if (!toggleBtn.contains(e.target as Node) && !navMenu.contains(e.target as Node)) {
-        navMenu.classList.remove('is-open');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
+      toggleBtn.addEventListener('click', () => {
+        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+        toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+        navMenu.classList.toggle('is-open');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!toggleBtn.contains(e.target as Node) && !navMenu.contains(e.target as Node)) {
+          navMenu.classList.remove('is-open');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
   }
+
+  initMobileMenu();
+  document.addEventListener('astro:page-load', initMobileMenu);
 </script>
 
 <style>
